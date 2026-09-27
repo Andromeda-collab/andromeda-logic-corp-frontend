@@ -1266,3 +1266,244 @@ img {
     display: none; /* Hide animated visuals for reduced motion */
   }
 }
+
+
+/* =========================================================
+   GLOBAL RESPONSIVE FOUNDATION
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Prevent media from breaking layouts */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive container */
+.container,
+.page-container,
+.content-container,
+.section-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+/* Generic flex/grid safety */
+.flex,
+.row {
+  min-width: 0;
+}
+
+.grid {
+  min-width: 0;
+}
+
+/* Prevent long text from breaking mobile layout */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  overflow-wrap: break-word;
+}
+
+/* Forms */
+input,
+textarea,
+select,
+button {
+  max-width: 100%;
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+}
+
+/* Tables */
+.table-wrapper,
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* =========================================================
+   LARGE TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .container,
+  .page-container,
+  .content-container,
+  .section-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+  .container,
+  .page-container,
+  .content-container,
+  .section-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .two-column,
+  .three-column,
+  .four-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .container,
+  .page-container,
+  .content-container,
+  .section-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .two-column,
+  .three-column,
+  .four-column,
+  .cards-grid,
+  .features-grid,
+  .services-grid,
+  .products-grid,
+  .solutions-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .row,
+  .flex-row,
+  .form-row,
+  .content-row {
+    flex-direction: column;
+  }
+
+  .mobile-full-width {
+    width: 100% !important;
+  }
+
+  button,
+  .btn,
+  .button {
+    max-width: 100%;
+  }
+
+  table {
+    min-width: 650px;
+  }
+}
+
+/* =========================================================
+   PHONE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .container,
+  .page-container,
+  .content-container,
+  .section-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .actions,
+  .action-buttons,
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .actions button,
+  .actions a,
+  .action-buttons button,
+  .action-buttons a,
+  .button-group button,
+  .button-group a {
+    width: 100%;
+  }
+}

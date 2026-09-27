@@ -51,3 +51,37 @@
   --alc-rhythm-tablet: 64px;
   --alc-rhythm-mobile: 40px;
 }
+
+
+
+:root {
+  /* Layout */
+  --container-max: 1440px;
+
+  --page-padding-desktop: 48px;
+  --page-padding-tablet: 24px;
+  --page-padding-mobile: 16px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Typography */
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.125rem;
+  --font-xl: 1.5rem;
+  --font-2xl: 2rem;
+  --font-3xl: 3rem;
+
+  /* Responsive sizing */
+  --heading-hero: clamp(2rem, 5vw, 4.5rem);
+  --heading-section: clamp(1.8rem, 4vw, 3rem);
+  --heading-card: clamp(1.1rem, 2vw, 1.4rem);
+}
