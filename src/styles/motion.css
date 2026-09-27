@@ -1,0 +1,439 @@
+/*
+  Andromeda Logic Corp ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Motion Design System
+  All reveal animations, easing curves, timing, and motion utilities.
+  prefers-reduced-motion is respected globally at the bottom.
+*/
+
+/* ============================================================
+   EASING CURVES
+   ============================================================ */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --dur-fast: 0.3s;
+  --dur-med: 0.6s;
+  --dur-slow: 0.9s;
+  --dur-cinematic: 1.2s;
+}
+
+/* ============================================================
+   PAGE TRANSITION OVERLAY
+   ============================================================ */
+.alc-page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.alc-page-curtain {
+  flex: 1;
+  background: #05070D;
+  transform-origin: top;
+}
+
+/* ============================================================
+   REVEAL ON SCROLL ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Base States
+   ============================================================ */
+
+/* Default hidden state */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variants */
+.reveal--up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.reveal--up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--fade {
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out-expo);
+}
+
+.reveal--fade.is-visible {
+  opacity: 1;
+}
+
+.reveal--left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.reveal--left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
+}
+
+.reveal--right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal--scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-back),
+    transform var(--dur-slow) var(--ease-out-back);
+}
+
+.reveal--scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Clip-path reveal (for headings) */
+.reveal--clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path var(--dur-cinematic) var(--ease-cinematic);
+}
+
+.reveal--clip.is-visible {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* Delay utilities */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+.reveal-delay-7 { transition-delay: 0.7s; }
+.reveal-delay-8 { transition-delay: 0.8s; }
+
+/* ============================================================
+   SPLIT TEXT REVEAL
+   ============================================================ */
+.split-text {
+  overflow: hidden;
+  display: block;
+}
+
+.split-text__line {
+  display: block;
+  overflow: hidden;
+}
+
+.split-text__inner {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition:
+    transform var(--dur-cinematic) var(--ease-cinematic),
+    opacity 0.4s ease;
+}
+
+.split-text.is-visible .split-text__inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Stagger inner lines */
+.split-text.is-visible .split-text__line:nth-child(1) .split-text__inner { transition-delay: 0s; }
+.split-text.is-visible .split-text__line:nth-child(2) .split-text__inner { transition-delay: 0.1s; }
+.split-text.is-visible .split-text__line:nth-child(3) .split-text__inner { transition-delay: 0.2s; }
+.split-text.is-visible .split-text__line:nth-child(4) .split-text__inner { transition-delay: 0.3s; }
+
+/* ============================================================
+   MAGNETIC BUTTON
+   ============================================================ */
+.alc-magnetic {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+/* ============================================================
+   TILT CARD
+   ============================================================ */
+.alc-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--ease-out-expo);
+  will-change: transform;
+}
+
+.alc-tilt:hover {
+  --tilt: 0deg;
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+.alc-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 9998;
+  background: linear-gradient(90deg, #6c4ce3, #e63c8c, #29e3d9);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s linear;
+}
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+.alc-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  mix-blend-mode: difference;
+}
+
+.alc-cursor__dot {
+  width: 8px;
+  height: 8px;
+  background: #f5f7ff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s var(--ease-out-expo), width 0.3s, height 0.3s;
+}
+
+.alc-cursor__ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(245,247,255,0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s var(--ease-out-expo), width 0.4s, height 0.4s, border-color 0.3s;
+}
+
+body.cursor-hover .alc-cursor__dot {
+  width: 12px;
+  height: 12px;
+}
+
+body.cursor-hover .alc-cursor__ring {
+  width: 54px;
+  height: 54px;
+  border-color: rgba(41,227,217,0.6);
+}
+
+/* ============================================================
+   GRADIENT NOISE TEXTURE OVERLAY
+   ============================================================ */
+.alc-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9996;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+/* ============================================================
+   EYEBROW / SECTION LABEL ANIMATION
+   ============================================================ */
+.alc-eyebrow-reveal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.alc-eyebrow-reveal::before {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  width: 0;
+  background: #29e3d9;
+  box-shadow: 0 0 10px rgba(41,227,217,0.5);
+  transition: width 0.8s var(--ease-out-expo);
+}
+
+.alc-eyebrow-reveal.is-visible::before {
+  width: 28px;
+}
+
+/* ============================================================
+   SECTION DIVIDER ANIMATE
+   ============================================================ */
+.alc-divider-animate {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #6c4ce3, #e63c8c, #29e3d9);
+  transition: width 1.2s var(--ease-cinematic);
+}
+
+.alc-divider-animate.is-visible {
+  width: 100%;
+}
+
+/* ============================================================
+   HOVER UNDERLINE LINK
+   ============================================================ */
+.alc-link-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.alc-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #6c4ce3, #29e3d9);
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+.alc-link-hover:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   GLOW PULSE
+   ============================================================ */
+@keyframes alc-glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(41,227,217,0.2); }
+  50% { box-shadow: 0 0 40px rgba(41,227,217,0.4), 0 0 80px rgba(108,76,227,0.2); }
+}
+
+.alc-glow-pulse {
+  animation: alc-glow-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   ANIMATED GRADIENT TEXT
+   ============================================================ */
+@keyframes alc-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.alc-text-gradient-animate {
+  background: linear-gradient(135deg, #f5f7ff, #29e3d9, #6c4ce3, #e63c8c, #f5f7ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: alc-gradient-shift 6s ease infinite;
+}
+
+/* ============================================================
+   COUNTER NUMBER ANIMATION
+   ============================================================ */
+.alc-counter {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  transition: none;
+}
+
+/* ============================================================
+   CARD SHINE EFFECT
+   ============================================================ */
+.alc-card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.alc-card-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  transition: left 0.6s var(--ease-out-expo);
+  pointer-events: none;
+}
+
+.alc-card-shine:hover::after {
+  left: 150%;
+}
+
+/* ============================================================
+   STAGGER CHILDREN
+   ============================================================ */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s var(--ease-out-expo),
+    transform 0.6s var(--ease-out-expo);
+}
+
+.stagger-children.is-visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.0s; }
+.stagger-children.is-visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
+.stagger-children.is-visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
+.stagger-children.is-visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
+.stagger-children.is-visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.4s; }
+.stagger-children.is-visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 0.5s; }
+.stagger-children.is-visible > *:nth-child(7) { opacity: 1; transform: none; transition-delay: 0.6s; }
+.stagger-children.is-visible > *:nth-child(8) { opacity: 1; transform: none; transition-delay: 0.7s; }
+
+/* ============================================================
+   REDUCED MOTION ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Universal override
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--up,
+  .reveal--fade,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .reveal--clip,
+  .split-text__inner,
+  .alc-divider-animate,
+  .alc-eyebrow-reveal::before,
+  .stagger-children > * {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    width: auto !important;
+  }
+
+  .alc-text-gradient-animate {
+    animation: none !important;
+  }
+
+  .alc-glow-pulse {
+    animation: none !important;
+  }
+}

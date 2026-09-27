@@ -1,0 +1,205 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Excel.Sheet">
+<meta name="Generator" content="Microsoft Excel 15">
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>15-Day Progress Report</x:Name>
+<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+<style>
+  body, table { font-family: 'Segoe UI', Calibri, Arial, sans-serif; font-size: 11pt; }
+  .title-cell { font-size: 16pt; font-weight: bold; color: #312e81; background-color: #e0e7ff; height: 36px; vertical-align: middle; text-align: center; }
+  .subtitle-cell { font-size: 10pt; color: #4338ca; background-color: #e0e7ff; text-align: center; }
+  .summary-bar { background-color: #1e1b4b; color: #ffffff; font-weight: bold; padding: 6px; }
+  .th-header { background-color: #4338ca; color: #ffffff; font-weight: bold; text-align: center; vertical-align: middle; border: 1px solid #312e81; height: 30px; }
+  .td-day { font-weight: bold; text-align: center; background-color: #f8fafc; border: 1px solid #cbd5e1; }
+  .td-date { text-align: center; background-color: #f8fafc; border: 1px solid #cbd5e1; white-space: nowrap; }
+  .td-module { font-weight: 600; color: #1e293b; background-color: #f1f5f9; border: 1px solid #cbd5e1; }
+  .td-task { font-weight: 600; color: #0f172a; border: 1px solid #cbd5e1; }
+  .td-desc { color: #334155; border: 1px solid #cbd5e1; }
+  .td-deliverables { font-size: 9.5pt; color: #475569; border: 1px solid #cbd5e1; }
+  .td-tech { font-size: 9.5pt; color: #64748b; background-color: #f8fafc; border: 1px solid #cbd5e1; }
+  .td-status-completed { font-weight: bold; color: #065f46; background-color: #d1fae5; text-align: center; vertical-align: middle; border: 1px solid #a7f3d0; }
+  .td-status-progress { font-weight: bold; color: #92400e; background-color: #fef3c7; text-align: center; vertical-align: middle; border: 1px solid #fde68a; }
+  .today-row td { background-color: #fffdf5; }
+</style>
+</head>
+<body>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td colspan="8" class="title-cell">FRONTEND INTERNSHIP 15-DAY PROGRESS REPORT</td>
+  </tr>
+  <tr>
+    <td colspan="8" class="subtitle-cell">Internship Window: August 10, 2026 – August 25, 2026 | Project: Andromeda DEV (React, Vite, Three.js, GSAP)</td>
+  </tr>
+  <tr style="height: 10px;"><td colspan="8" style="background-color: #ffffff; border: none;"></td></tr>
+  <tr>
+    <th class="th-header" style="width: 70px;">Day</th>
+    <th class="th-header" style="width: 95px;">Date</th>
+    <th class="th-header" style="width: 140px;">Module / Area</th>
+    <th class="th-header" style="width: 220px;">Task Title</th>
+    <th class="th-header" style="width: 280px;">Task Description</th>
+    <th class="th-header" style="width: 380px;">Key Deliverables</th>
+    <th class="th-header" style="width: 180px;">Tech Stack</th>
+    <th class="th-header" style="width: 120px;">Status</th>
+  </tr>
+  <tr>
+    <td class="td-day">Day 1</td>
+    <td class="td-date">10-Aug-2026</td>
+    <td class="td-module">Setup & Config</td>
+    <td class="td-task">Environment Setup & Vite + React Boilerplate</td>
+    <td class="td-desc">Configured workspace dependencies build tooling and standardized conventions.</td>
+    <td class="td-deliverables">• Vite + React 18 configuration with ESLint<br>• Folder structuring (pages components layouts context)<br>• Global CSS variables reset & typography<br>• Installed Three.js GSAP Framer-motion React Router</td>
+    <td class="td-tech">Vite, React 18, ESLint, CSS3</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 2</td>
+    <td class="td-date">11-Aug-2026</td>
+    <td class="td-module">Layout & Navigation</td>
+    <td class="td-task">Global Layout, Navigation Bar & Routing</td>
+    <td class="td-desc">Built modular layout wrappers and client-side routing across all corporate routes.</td>
+    <td class="td-deliverables">• React Router configuration (BrowserRouter, NavLink, dynamic routes)<br>• Sticky glassmorphic Navbar with blur backdrop<br>• Multi-column responsive Footer component<br>• Scroll-to-Top trigger & 404 NotFound page</td>
+    <td class="td-tech">React Router DOM, Glassmorphism</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 3</td>
+    <td class="td-date">12-Aug-2026</td>
+    <td class="td-module">Home Page</td>
+    <td class="td-task">Hero Section & Interactive Landing Showcase</td>
+    <td class="td-desc">Engineered main landing page hero banners with high-impact visuals and CTA triggers.</td>
+    <td class="td-deliverables">• Hero header with gradient typography & responsive grid<br>• Interactive CTA buttons with micro-interactions<br>• Partner logos ticker carousel<br>• Smooth entrance animations using GSAP & CSS transforms</td>
+    <td class="td-tech">Home Hero, GSAP, CSS3</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 4</td>
+    <td class="td-date">13-Aug-2026</td>
+    <td class="td-module">3D & Visuals</td>
+    <td class="td-task">Three.js / React Three Fiber Canvas Integration</td>
+    <td class="td-desc">Integrated 3D interactive canvases for futuristic visual storytelling.</td>
+    <td class="td-deliverables">• Integrated @react-three/fiber and @react-three/drei canvas<br>• Interactive 3D particle sphere / mesh with mouse tracking<br>• WebGL fallback & responsive resize listeners<br>• Frame-rate & GPU optimization</td>
+    <td class="td-tech">Three.js, R3F, WebGL</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 5</td>
+    <td class="td-date">14-Aug-2026</td>
+    <td class="td-module">About Module</td>
+    <td class="td-task">Company About, Mission, Vision & Team Page</td>
+    <td class="td-desc">Developed rich content layouts showcasing mission statements timelines and profiles.</td>
+    <td class="td-deliverables">• Interactive milestone roadmap/timeline with scroll triggers<br>• Leadership cards with flip effects & bio popups<br>• Company core values and strategic pillars visual grid<br>• Mobile and tablet responsive breakpoint adaptation</td>
+    <td class="td-tech">About Page, Timeline UI, Cards</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 6</td>
+    <td class="td-date">15-Aug-2026</td>
+    <td class="td-module">Solutions</td>
+    <td class="td-task">Solutions Showcase & Live Segment Filter</td>
+    <td class="td-desc">Created solutions catalog with live category filtering feature tabs and matrices.</td>
+    <td class="td-deliverables">• Filterable tabs for enterprise cloud and edge solutions<br>• Feature matrices with interactive comparison check-tables<br>• Client outcome metric counter animations with GSAP<br>• Downloadable whitepaper CTA integrations</td>
+    <td class="td-tech">Solutions UI, State Filtering</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 7</td>
+    <td class="td-date">16-Aug-2026</td>
+    <td class="td-module">Research & Library</td>
+    <td class="td-task">Research Papers, Whitepapers & Resource Hub</td>
+    <td class="td-desc">Built structured repositories for scientific documentation and technical papers.</td>
+    <td class="td-deliverables">• Search bar with real-time text query filtering<br>• Tag-based classification (AI, Quantum, Systems, Security)<br>• Document preview modal with metadata & PDF download CTA<br>• Pagination and sorting controls</td>
+    <td class="td-tech">Research Hub, Modals, Filters</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 8</td>
+    <td class="td-date">17-Aug-2026</td>
+    <td class="td-module">Case Studies</td>
+    <td class="td-task">Customer Case Studies & Success Story Layouts</td>
+    <td class="td-desc">Designed case study layouts detailing enterprise problem statements and metrics.</td>
+    <td class="td-deliverables">• Impact stats callouts with animated numeric counters<br>• Testimonial carousel with swipe and arrow navigation<br>• Problem vs Solution comparative layout cards<br>• Dynamic slug routing for case study details</td>
+    <td class="td-tech">Case Studies, Slider UI</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 9</td>
+    <td class="td-date">18-Aug-2026</td>
+    <td class="td-module">News & Media</td>
+    <td class="td-task">Newsroom, Press Releases & Media Kit Section</td>
+    <td class="td-desc">Constructed press announcement hub with chronological feed and media asset kits.</td>
+    <td class="td-deliverables">• Press release card feeds with date tags and read time<br>• Media kit brand assets download section (logos, press photos)<br>• Social share modal integration (LinkedIn, X, Copy Link)<br>• Newsletter subscription input with regex email validation</td>
+    <td class="td-tech">Newsroom, Form Validation</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 10</td>
+    <td class="td-date">19-Aug-2026</td>
+    <td class="td-module">Careers</td>
+    <td class="td-task">Careers Portal, Job Listings & Culture Showcase</td>
+    <td class="td-desc">Created recruitment hub with open positions perks showcase and application flow.</td>
+    <td class="td-deliverables">• Department-wise job openings filter (Engineering, Product, etc.)<br>• Interactive job description accordion expanding perks<br>• Quick resume upload modal form<br>• Culture and benefits interactive grid with hover highlights</td>
+    <td class="td-tech">Careers, Accordion UI</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 11</td>
+    <td class="td-date">20-Aug-2026</td>
+    <td class="td-module">Trust & Security</td>
+    <td class="td-task">Trust Center, Security Standards & Compliance</td>
+    <td class="td-desc">Implemented security badges compliance summaries and system status indicators.</td>
+    <td class="td-deliverables">• Security certification badges (SOC2, ISO27001, GDPR)<br>• Live platform uptime & latency health status indicator<br>• Data privacy policy breakdown with interactive TOC<br>• FAQ accordion with animated collapsible sections</td>
+    <td class="td-tech">Trust Center, Compliance UI</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 12</td>
+    <td class="td-date">21-Aug-2026</td>
+    <td class="td-module">Investors & Contact</td>
+    <td class="td-task">Investor Relations & Contact Inquiry Forms</td>
+    <td class="td-desc">Built investor briefing charts layout and enterprise inquiry form.</td>
+    <td class="td-deliverables">• Quarterly earnings report downloads & investor overview deck<br>• Multi-field Contact Form with regex validation<br>• Office location maps layout and global contact directory<br>• Form state handling (idle, loading spinner, success toast)</td>
+    <td class="td-tech">Contact Form, Toast Feedback</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 13</td>
+    <td class="td-date">22-Aug-2026</td>
+    <td class="td-module">Products Page</td>
+    <td class="td-task">Products Architecture & Tiered Feature Catalog</td>
+    <td class="td-desc">Constructed product ecosystem presentation feature breakdown and pricing toggle.</td>
+    <td class="td-deliverables">• Product specification tables with interactive highlights<br>• Interactive billing toggle (Monthly / Annual) with discount badges<br>• Feature tier comparison cards with CTA buttons<br>• Dedicated styling refinements in Products.css</td>
+    <td class="td-tech">Products.jsx, Products.css</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr>
+    <td class="td-day">Day 14</td>
+    <td class="td-date">23-Aug-2026</td>
+    <td class="td-module">Technology Page</td>
+    <td class="td-task">Technology Deep-Dive, Tech Stack & Schematics</td>
+    <td class="td-desc">Engineered core technology breakdown page with interactive architectural flow diagrams.</td>
+    <td class="td-deliverables">• Interactive tech stack tabs (Core Engine, Security, Cloud, AI)<br>• Architecture flow diagram with animated connector pulses<br>• Performance benchmarks graph and speed comparison cards<br>• Implemented keyframes in Technology.css</td>
+    <td class="td-tech">Technology.jsx, Technology.css</td>
+    <td class="td-status-completed">✓ Completed</td>
+  </tr>
+  <tr class="today-row">
+    <td class="td-day" style="background-color: #fef3c7; color: #92400e;">Day 15</td>
+    <td class="td-date" style="background-color: #fef3c7; font-weight: bold; color: #92400e;">25-Aug-2026</td>
+    <td class="td-module" style="background-color: #fef3c7; color: #92400e;">Active Sprint</td>
+    <td class="td-task" style="font-weight: bold; color: #92400e;">Technology & Products Polish & Integration</td>
+    <td class="td-desc">Refactoring component states styling enhancements in Technology/Products pages and responsive QA.</td>
+    <td class="td-deliverables">• Refining interactive state transitions in Technology/index.jsx<br>• Enhancing responsive CSS rules in Products.css & Technology.css<br>• Validating cross-module routing & Three.js canvas responsiveness<br>• Conducting performance audits and mobile responsiveness testing</td>
+    <td class="td-tech">Technology.jsx, Products.css</td>
+    <td class="td-status-progress">⏳ In Progress</td>
+  </tr>
+</table>
+</body>
+</html>

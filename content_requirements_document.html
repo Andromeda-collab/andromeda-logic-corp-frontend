@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Content & Assets Requirements Document - Andromeda Logic Corp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --primary: #4338ca;
+    --primary-dark: #312e81;
+    --primary-light: #6366f1;
+    --primary-bg: #eef2ff;
+    --cyan: #0891b2;
+    --cyan-bg: #ecfeff;
+    --amber: #d97706;
+    --amber-bg: #fffbeb;
+    --success: #059669;
+    --success-bg: #ecfdf5;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border: #e2e8f0;
+    --card-bg: #ffffff;
+    --bg: #f8fafc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.55;
+    padding: 36px 20px;
+    font-size: 13px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .container {
+    max-width: 1020px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 44px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Floating Print Button */
+  .print-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #4338ca;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(67, 56, 202, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .print-btn:hover { background: #312e81; transform: translateY(-2px); }
+
+  /* Document Header */
+  .doc-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .doc-title h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--primary-dark);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .doc-title p {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+
+  .badge-tag {
+    background: var(--primary-bg);
+    color: var(--primary);
+    border: 1px solid #c7d2fe;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  /* Meta Info Grid */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+
+  .meta-item .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .meta-item .value {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  /* Executive Summary Box */
+  .callout-box {
+    background: #fdfefe;
+    border-left: 4px solid var(--primary-light);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    color: #334155;
+    font-size: 13px;
+  }
+
+  .callout-box strong { color: #1e293b; }
+
+  /* Section Title */
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 32px 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .section-title .count-badge {
+    font-size: 11.5px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  /* Tables */
+  .req-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
+    page-break-inside: auto;
+  }
+
+  .req-table th {
+    background: #f1f5f9;
+    color: #1e293b;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    border: 1px solid var(--border);
+  }
+
+  .req-table td {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .req-table tr:nth-child(even) td {
+    background-color: #fafbfd;
+  }
+
+  .page-name {
+    font-weight: 700;
+    color: var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .page-route {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .status-tag {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .tag-urgent { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+  .tag-moderate { background: var(--amber-bg); color: var(--amber); border: 1px solid #fde68a; }
+  .tag-standard { background: var(--cyan-bg); color: var(--cyan); border: 1px solid #a5f3fc; }
+
+  ul.req-bullets {
+    padding-left: 18px;
+    margin: 0;
+  }
+  ul.req-bullets li {
+    margin-bottom: 4px;
+    color: #334155;
+  }
+  ul.req-bullets li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Photo Spec Guidelines Box */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .spec-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    background: #ffffff;
+  }
+
+  .spec-card h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .spec-card ul {
+    list-style-type: none;
+    font-size: 12px;
+    color: #475569;
+  }
+
+  .spec-card ul li {
+    margin-bottom: 5px;
+    padding-left: 12px;
+    position: relative;
+  }
+  .spec-card ul li::before {
+    content: "•";
+    color: var(--primary-light);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  /* Checklist Block */
+  .submission-block {
+    background: #f8fafc;
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .submission-block h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1e293b;
+  }
+
+  .submission-block ol {
+    padding-left: 20px;
+    font-size: 12.5px;
+    color: #334155;
+  }
+
+  .submission-block ol li {
+    margin-bottom: 6px;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 11.5px;
+  }
+
+  @media print {
+    body { padding: 0; background: #fff; }
+    .container { max-width: 100%; padding: 0; box-shadow: none; }
+    .print-btn { display: none; }
+    tr { page-break-inside: avoid; }
+    .section-title { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">
+  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+  Save / Print as PDF
+</button>
+
+<div class="container">
+  <!-- Header -->
+  <div class="doc-header">
+    <div class="doc-title">
+      <h1>Content & Media Assets Requirement Specification</h1>
+      <p>Master Copywriting & High-Resolution Asset Checklist by Page</p>
+    </div>
+    <div>
+      <span class="badge-tag">Frontend Requirements</span>
+    </div>
+  </div>
+
+  <!-- Meta Info -->
+  <div class="meta-grid">
+    <div class="meta-item">
+      <div class="label">Project</div>
+      <div class="value">Andromeda Logic Corp</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Target Audience</div>
+      <div class="value">Project Manager / Content Team</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Total Pages Covered</div>
+      <div class="value">13 Core Routes</div>
+    </div>
+    <div class="meta-item">
+      <div class="label">Date Created</div>
+      <div class="value">August 28, 2026</div>
+    </div>
+  </div>
+
+  <!-- Summary Callout -->
+  <div class="callout-box">
+    <strong>Executive Note for Management:</strong> As the frontend layout, responsive navigation, Three.js 3D viewport canvas, and design architecture are fully set up, we now require finalized corporate copy (text descriptions, specifications, mission briefings) and high-resolution media assets (photos, diagram schematics, team portraits, brand logos) to replace all temporary placeholders across the site.
+  </div>
+
+  <!-- SECTION 1: DETAILED PAGE REQUIREMENTS -->
+  <div class="section-title">
+    <span>1. Page-by-Page Copy & Text Content Requirements</span>
+    <span class="count-badge">13 Pages</span>
+  </div>
+
+  <table class="req-table">
+    <thead>
+      <tr>
+        <th style="width: 170px;">Page / Route</th>
+        <th style="width: 100px;">Priority</th>
+        <th>Text Copy Required</th>
+        <th>Photo / Image Assets Required</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- 1. Home -->
+      <tr>
+        <td class="page-name">
+          <span>Home Page</span>
+          <span class="page-route">/</span>
+        </td>
+        <td><span class="status-tag tag-urgent">High Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Final Hero Headline, Tagline, and Sub-header value proposition</li>
+            <li>Approved 4 Pillar Descriptions (Autonomy, Resilience, Signal, Validation)</li>
+            <li>Live Metric Counters data (e.g. Flight Hours, Mission Success %, Orbits Logged)</li>
+            <li>List of authorized Client / Partner enterprise names</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>High-resolution SVG logos of space agencies / enterprise partners</li>
+            <li>Custom 3D background visual preferences / textures for hero canvas</li>
+            <li>Futuristic illustration/rendering for technology pillars overview</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 2. About -->
+      <tr>
+        <td class="page-name">
+          <span>About Us</span>
+          <span class="page-route">/about</span>
+        </td>
+        <td><span class="status-tag tag-urgent">High Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Official Company Vision, Mission Statement, and Founding Story</li>
+            <li>Historical Milestones & Roadmap (2020 – 2026+ key space achievements)</li>
+            <li>Executive Leadership Profiles: Names, official Titles, and 2-sentence Bios</li>
+            <li>Core Corporate Values (4–5 key value pillars)</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Professional studio headshots of Founders & Executive Team (1:1 ratio, 800x800px)</li>
+            <li>Office / R&D Cleanroom / Mission Control lab environment photos</li>
+            <li>Andromeda brand evolution timeline graphics</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 3. Products -->
+      <tr>
+        <td class="page-name">
+          <span>Products & Platforms</span>
+          <span class="page-route">/products</span>
+        </td>
+        <td><span class="status-tag tag-urgent">High Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Full product descriptions & technical value propositions for:
+              <br><em>• EDGE Payload • GNC Autonomy Stack • Swarm Orchestrator • HITL Digital Twin Suite • Radiation-Tolerant Inference Engine</em>
+            </li>
+            <li>Technical specification sheets (Input power, SWaP, Rad-hard specs, Interfaces)</li>
+            <li>Tiered feature breakdown & Deployment Readiness Level (TRL 7/8/9)</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Hardware renders & 3D exploded views of the EDGE Payload box/cards</li>
+            <li>UI screenshots/dashboard previews of Swarm Orchestrator & HITL Twin software</li>
+            <li>Infographic diagrams showing system integration architecture</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 4. Technology Hub -->
+      <tr>
+        <td class="page-name">
+          <span>Technology Hub</span>
+          <span class="page-route">/technology</span>
+        </td>
+        <td><span class="status-tag tag-urgent">High Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Deep-dive technical narrative for 5 Core Specialties (GNC, Rad-hard AI, Edge Computing, Swarms, HITL)</li>
+            <li>Official Procurement & Evaluator FAQ answers (ITAR, EAR, export classification)</li>
+            <li>Performance benchmark comparison data against traditional space avionics</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>High-resolution architectural flowcharts and data pipeline diagrams</li>
+            <li>Thermal and radiation testing lab benchmark visualization charts</li>
+            <li>Aerospace compliance / security framework schematics</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 5. Solutions -->
+      <tr>
+        <td class="page-name">
+          <span>Solutions</span>
+          <span class="page-route">/solutions</span>
+        </td>
+        <td><span class="status-tag tag-moderate">Medium Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Industry segment use-case descriptions:
+              <br><em>• Commercial Satellite Constellations • Deep-Space Probes • Lunar Outposts & Rovers • Defense & National Security</em>
+            </li>
+            <li>Problem vs. Solution ROI summaries for each enterprise sector</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Sector hero imagery (Satellite constellation orbit, Lunar surface, Deep space)</li>
+            <li>Infographics highlighting cost-reduction and latency-reduction outcomes</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 6. Missions & Case Studies -->
+      <tr>
+        <td class="page-name">
+          <span>Missions / Case Studies</span>
+          <span class="page-route">/missions</span>
+        </td>
+        <td><span class="status-tag tag-moderate">Medium Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>3–4 Detailed Mission Case Stories (e.g., Mission Prarambh, Lunar Survey, Deep Space Probe)</li>
+            <li>Customer Problem Statement, Deployed Andromeda Solution, and Verified Outcome Metrics</li>
+            <li>Client quotes / endorsements from Mission Directors</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Mission insignia / patch graphics (vector SVG or high-res PNG)</li>
+            <li>Actual telemetry visualization screens / orbital capture photography</li>
+            <li>Launch vehicle / payload integration event photographs</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 7. Research & Library -->
+      <tr>
+        <td class="page-name">
+          <span>Research & Library</span>
+          <span class="page-route">/research & /library</span>
+        </td>
+        <td><span class="status-tag tag-standard">Standard</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Titles, Authors, Publication Dates, and Abstracts for 4–6 Whitepapers & Research Papers</li>
+            <li>Topics: Autonomous GNC Algorithms, Rad-Hard Neural Nets, Inter-Satellite Optical Swarms</li>
+            <li>Downloadable resource descriptions & citation guides</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Cover thumbnail artwork for each downloadable PDF whitepaper (4:3 aspect ratio)</li>
+            <li>Actual downloadable Whitepaper PDF documents to link on the download CTA</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 8. Trust & Security -->
+      <tr>
+        <td class="page-name">
+          <span>Trust & Compliance</span>
+          <span class="page-route">/trust</span>
+        </td>
+        <td><span class="status-tag tag-moderate">Medium Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Security & Compliance standards breakdown (SOC 2 Type II, ISO 27001, ITAR, NIST 800-171, GDPR)</li>
+            <li>Data sovereignty, encryption standards (AES-256 / Quantum-safe), and supply chain audit policies</li>
+            <li>Uptime SLA commitments & security incident response protocol summary</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Official Vector/PNG Certification Badges (SOC2, ISO, ITAR Registered, Cyber Essentials)</li>
+            <li>Architecture security topology diagram</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 9. Investors -->
+      <tr>
+        <td class="page-name">
+          <span>Investors</span>
+          <span class="page-route">/investors</span>
+        </td>
+        <td><span class="status-tag tag-standard">Standard</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Investor Relations overview copy, market opportunity summary & leadership governance</li>
+            <li>Financial highlights / round announcements (Series A / Seed details if public)</li>
+            <li>SEC/Regulatory disclosures & Investor FAQ</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Downloadable Investor Fact Sheet PDF & Pitch Deck summary PDF</li>
+            <li>Market growth trajectory & TAM chart graphics</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 10. Careers -->
+      <tr>
+        <td class="page-name">
+          <span>Careers Portal</span>
+          <span class="page-route">/careers</span>
+        </td>
+        <td><span class="status-tag tag-standard">Standard</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Company culture description, working philosophy & employee perks list</li>
+            <li>Job Openings specifications: Job Title, Department, Location (Remote/Onsite), Experience Level, and Responsibilities list</li>
+            <li>Equal Opportunity Employer (EOE) statement</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>High-energy team culture & workplace lifestyle photographs</li>
+            <li>Engineering team collaboration & hackathon / launch event photos</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 11. Newsroom -->
+      <tr>
+        <td class="page-name">
+          <span>Newsroom & Media</span>
+          <span class="page-route">/newsroom</span>
+        </td>
+        <td><span class="status-tag tag-standard">Standard</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Press Releases & Announcements: Date, Title, Summary, Full Story Article Body</li>
+            <li>Media contact details (Press inquiries email, Spokesperson name)</li>
+            <li>Brand Boilerplate ("About Andromeda Logic Corp")</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Media Kit downloadable ZIP (Official Vector Logos, Color Guide, High-Res Product Photos)</li>
+            <li>Thumbnail banners for each news article (16:9 ratio, 1200x675px)</li>
+          </ul>
+        </td>
+      </tr>
+
+      <!-- 12. Contact -->
+      <tr>
+        <td class="page-name">
+          <span>Contact & Inquiries</span>
+          <span class="page-route">/contact</span>
+        </td>
+        <td><span class="status-tag tag-urgent">High Priority</span></td>
+        <td>
+          <ul class="req-bullets">
+            <li>Official HQ Address, Regional Office locations, and phone numbers</li>
+            <li>Departmental contact emails (Sales, Partnerships, Careers, Media, Support)</li>
+            <li>Form field dropdown categories (e.g., "Request Consultation", "Procurement Inquiry", "Partnership")</li>
+          </ul>
+        </td>
+        <td>
+          <ul class="req-bullets">
+            <li>Clean stylized vector map graphic or HQ building exterior photography</li>
+          </ul>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- SECTION 2: ASSET SPECIFICATIONS & FORMATS -->
+  <div class="section-title">
+    <span>2. Media File Specifications & Guidelines</span>
+    <span class="count-badge">Asset Standards</span>
+  </div>
+
+  <div class="spec-grid">
+    <div class="spec-card">
+      <h4>🖼️ Photography & Imagery</h4>
+      <ul>
+        <li><strong>Format:</strong> WebP or high-res JPG / PNG</li>
+        <li><strong>Hero Banners:</strong> 1920x1080px (16:9), under 400KB</li>
+        <li><strong>Card Thumbnails:</strong> 1200x800px (3:2)</li>
+        <li><strong>Headshots:</strong> 800x800px (1:1), transparent or solid dark background</li>
+      </ul>
+    </div>
+
+    <div class="spec-card">
+      <h4>📐 Logos & Brand Icons</h4>
+      <ul>
+        <li><strong>Format:</strong> Vector SVG (Preferred) or Transparent PNG (300 DPI)</li>
+        <li><strong>Variations:</strong> Dark-mode light color version & full-color version</li>
+        <li><strong>Compliance:</strong> ISO, SOC2, Agency badges in crisp vector format</li>
+      </ul>
+    </div>
+
+    <div class="spec-card">
+      <h4>📑 Documents & PDFs</h4>
+      <ul>
+        <li><strong>Format:</strong> Compressed PDF (under 5MB per document)</li>
+        <li><strong>Content:</strong> Whitepapers, Case Studies, Media Kits, Investor Factsheets</li>
+        <li><strong>Metadata:</strong> Embedded title, author, and description tags</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Submission Steps Box -->
+  <div class="submission-block">
+    <h3>📥 Recommended Delivery Workflow for Management / Content Team:</h3>
+    <ol>
+      <li><strong>Google Drive / Shared Folder:</strong> Organize assets into folders by page name (e.g., <code>/01_About_Us/</code>, <code>/02_Products/</code>, <code>/03_Team_Headshots/</code>).</li>
+      <li><strong>Shared Copy Document:</strong> Provide text copy in a shared Google Doc or Notion page corresponding to each table section above.</li>
+      <li><strong>Frontend Integration:</strong> The frontend team will immediately inject the approved text and wire up high-res assets into the live React components.</li>
+    </ol>
+  </div>
+
+  <!-- Document Footer -->
+  <div class="doc-footer">
+    <div><strong>Andromeda Logic Corp</strong> • Frontend Architecture Team</div>
+    <div>Document Reference: ALC-REQ-2026-V1 • Prepared for Management Review</div>
+  </div>
+
+</div>
+
+</body>
+</html>

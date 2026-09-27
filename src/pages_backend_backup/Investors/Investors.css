@@ -1,0 +1,60 @@
+.alc-investors {
+  min-height: 100vh;
+  background-color: var(--alc-void-black, #05070d);
+  color: var(--alc-signal-white, #f5f7ff);
+  padding-top: 100px;
+}
+.alc-investors__hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 20px 8px;
+}
+.alc-investors__hero-label {
+  font-family: var(--alc-font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--alc-ion-cyan, #29e3d9);
+  margin-bottom: 12px;
+}
+.alc-investors__hero h1 {
+  font-family: var(--alc-font-display, "Space Grotesk", sans-serif);
+  margin: 0 0 10px;
+}
+.alc-investors__hero p {
+  color: var(--alc-slate, #8a93b8);
+  max-width: 64ch;
+}
+
+.alc-investors__body {
+  padding: 16px 20px 96px;
+}
+.alc-investors__section {
+  padding: 28px 0;
+  border-top: 1px solid rgba(138, 147, 184, 0.18);
+}
+.alc-investors__section-label {
+  font-family: var(--alc-font-mono, monospace);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--alc-ion-cyan, #29e3d9);
+  margin-bottom: 12px;
+}
+.alc-investors__section p {
+  max-width: 74ch;
+  line-height: 1.7;
+  color: var(--alc-signal-white, #f5f7ff);
+}
+.alc-investors__cta {
+  margin-top: 40px;
+  padding: 32px;
+  border: 1px solid rgba(138, 147, 184, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(11, 16, 38, 0.6), rgba(5, 7, 13, 0.4));
+}
+.alc-investors__cta h2 {
+  margin: 0 0 8px;
+}
+.alc-investors__cta p {
+  color: var(--alc-slate, #8a93b8);
+  margin: 0 0 18px;
+}

@@ -1,0 +1,11 @@
+.alc-investors {
+  min-height: 100vh;
+  background-color: var(--color-void);
+  color: var(--color-white);
+  padding-top: 100px;
+}
+.alc-investors__hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}

@@ -1,0 +1,160 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Excel.Sheet">
+<meta name="Generator" content="Microsoft Excel 15">
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>Content Requirements Checklist</x:Name>
+<x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+<style>
+  body, table { font-family: 'Segoe UI', Calibri, Arial, sans-serif; font-size: 11pt; }
+  .title-cell { font-size: 15pt; font-weight: bold; color: #1e1b4b; background-color: #e0e7ff; height: 38px; vertical-align: middle; text-align: center; }
+  .subtitle-cell { font-size: 10pt; color: #4338ca; background-color: #e0e7ff; text-align: center; height: 24px; }
+  .th-header { background-color: #4338ca; color: #ffffff; font-weight: bold; text-align: center; vertical-align: middle; border: 1px solid #312e81; height: 30px; }
+  .td-page { font-weight: bold; color: #1e1b4b; background-color: #f8fafc; border: 1px solid #cbd5e1; }
+  .td-route { font-family: 'Consolas', monospace; color: #475569; background-color: #f8fafc; border: 1px solid #cbd5e1; text-align: center; }
+  .td-prio-high { font-weight: bold; color: #991b1b; background-color: #fee2e2; border: 1px solid #fecaca; text-align: center; }
+  .td-prio-med { font-weight: bold; color: #92400e; background-color: #fef3c7; border: 1px solid #fde68a; text-align: center; }
+  .td-prio-std { font-weight: bold; color: #0e7490; background-color: #cffafe; border: 1px solid #a5f3fc; text-align: center; }
+  .td-text { color: #1e293b; border: 1px solid #cbd5e1; }
+  .td-photo { color: #334155; border: 1px solid #cbd5e1; }
+  .td-specs { font-size: 9.5pt; color: #64748b; background-color: #f8fafc; border: 1px solid #cbd5e1; }
+  .td-status { text-align: center; color: #64748b; border: 1px solid #cbd5e1; font-weight: 600; }
+</style>
+</head>
+<body>
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td colspan="7" class="title-cell">ANDROMEDA LOGIC CORP - WEBSITE CONTENT & PHOTO REQUIREMENTS LIST</td>
+  </tr>
+  <tr>
+    <td colspan="7" class="subtitle-cell">Master Asset & Copy Checklist for Management Review | Total 13 Pages Covered</td>
+  </tr>
+  <tr style="height: 10px;"><td colspan="7" style="background-color: #ffffff; border: none;"></td></tr>
+  <tr>
+    <th class="th-header" style="width: 140px;">Page Name</th>
+    <th class="th-header" style="width: 100px;">Route</th>
+    <th class="th-header" style="width: 110px;">Priority</th>
+    <th class="th-header" style="width: 380px;">Text / Copywriting Required</th>
+    <th class="th-header" style="width: 320px;">Photos & Visual Assets Required</th>
+    <th class="th-header" style="width: 200px;">Asset Format & Specs</th>
+    <th class="th-header" style="width: 110px;">Status</th>
+  </tr>
+  <tr>
+    <td class="td-page">Home Page</td>
+    <td class="td-route">/</td>
+    <td class="td-prio-high">High Priority</td>
+    <td class="td-text">• Approved Hero Headline, Tagline & Sub-header<br>• Descriptions for 4 Pillars (Autonomy, Resilience, Signal, Validation)<br>• Approved Stats (Flight Hours, Success %, Orbits)<br>• List of verified partner names</td>
+    <td class="td-photo">• Space agency / partner brand logos<br>• Futuristic 3D hero background textures<br>• Visual illustrations for technology pillars</td>
+    <td class="td-specs">Logos: Vector SVG<br>Images: WebP/PNG (1920x1080)</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">About Us</td>
+    <td class="td-route">/about</td>
+    <td class="td-prio-high">High Priority</td>
+    <td class="td-text">• Official Company Mission, Vision & Founding Story<br>• Milestone roadmap dates & achievements (2020-2026+)<br>• Executive Leadership bios (Name, Title, 2-sentence Bio)<br>• Core Corporate Values (4-5 points)</td>
+    <td class="td-photo">• Executive team studio portraits / headshots<br>• Cleanroom, R&D lab & office environment photos<br>• Brand timeline graphical badges</td>
+    <td class="td-specs">Headshots: 800x800px (1:1)<br>Lab Photos: 1200x800px (3:2)</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Products</td>
+    <td class="td-route">/products</td>
+    <td class="td-prio-high">High Priority</td>
+    <td class="td-text">• Descriptions & value props for 5 platforms:<br>  (EDGE Payload, GNC Autonomy, Swarm, HITL, Rad-Tolerant AI)<br>• Technical specs (Power, SWaP, Interfaces, Rad-hard specs)<br>• TRL Deployment Readiness Levels (TRL 7/8/9)</td>
+    <td class="td-photo">• Hardware 3D renders / exploded chassis views<br>• Software dashboard preview screenshots (Swarm, HITL)<br>• System architecture infographic diagrams</td>
+    <td class="td-specs">Hardware Renders: Transparent PNG<br>Screenshots: 1920x1080 PNG</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Technology Hub</td>
+    <td class="td-route">/technology</td>
+    <td class="td-prio-high">High Priority</td>
+    <td class="td-text">• In-depth technical narrative for 5 Core Specialties<br>• Official Procurement & Evaluator FAQ answers (ITAR, EAR)<br>• Benchmark comparative data vs conventional avionics</td>
+    <td class="td-photo">• High-res architecture data pipeline diagrams<br>• Lab testing benchmark visualization charts<br>• Security & avionics compliance schematics</td>
+    <td class="td-specs">Diagrams: SVG / High-res PNG<br>Charts: Transparent PNG</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Solutions</td>
+    <td class="td-route">/solutions</td>
+    <td class="td-prio-med">Medium Priority</td>
+    <td class="td-text">• Use cases for Constellations, Lunar Outposts, Deep Space & Defense<br>• Problem vs Solution ROI summaries for each sector</td>
+    <td class="td-photo">• Sector imagery (Orbiting constellations, Lunar landers)<br>• Infographic diagrams highlighting efficiency outcomes</td>
+    <td class="td-specs">Banner Imagery: 1920x1080 WebP<br>Card Images: 1200x800px</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Missions & Case Studies</td>
+    <td class="td-route">/missions</td>
+    <td class="td-prio-med">Medium Priority</td>
+    <td class="td-text">• 3-4 Case Stories (Mission Prarambh, Lunar Survey, Deep Space)<br>• Customer Problem, Solution Deployed, and Verified Metrics<br>• Client quotes & endorsements from Mission Directors</td>
+    <td class="td-photo">• Official Mission Insignia / Patch graphics<br>• Actual telemetry screen captures / orbital photography<br>• Payload integration & launch photographs</td>
+    <td class="td-specs">Patches: Vector SVG / PNG<br>Photos: 16:9 WebP / JPG</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Research & Library</td>
+    <td class="td-route">/research & /library</td>
+    <td class="td-prio-std">Standard</td>
+    <td class="td-text">• Titles, Authors, Publication Dates & Abstracts for 4-6 Papers<br>• Topics: GNC Algorithms, Rad-Hard Neural Nets, Optical Swarms<br>• Downloadable resource summaries & citation guides</td>
+    <td class="td-photo">• Cover thumbnail artwork for each Whitepaper<br>• Actual downloadable Whitepaper PDF documents</td>
+    <td class="td-specs">Thumbnails: 600x800px (3:4 ratio)<br>PDFs: Compressed under 5MB</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Trust & Security</td>
+    <td class="td-route">/trust</td>
+    <td class="td-prio-med">Medium Priority</td>
+    <td class="td-text">• Compliance details: SOC2, ISO27001, ITAR, NIST, GDPR<br>• Data sovereignty, AES-256 encryption & supply chain policy<br>• Uptime SLA commitments & security response protocols</td>
+    <td class="td-photo">• Official Certification Vector Badges (SOC2, ISO, ITAR)<br>• Security topology & cryptographic architecture diagram</td>
+    <td class="td-specs">Badges: Crisp Vector SVG<br>Diagrams: SVG / PNG</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Investors</td>
+    <td class="td-route">/investors</td>
+    <td class="td-prio-std">Standard</td>
+    <td class="td-text">• Investor relations copy & market opportunity summary<br>• Financial milestones & funding round details (if public)<br>• SEC/Regulatory disclosures & Investor FAQ</td>
+    <td class="td-photo">• Downloadable Investor Fact Sheet PDF & Pitch Deck PDF<br>• Market size / TAM growth charts</td>
+    <td class="td-specs">Charts: Vector SVG / PNG<br>PDFs: Compressed under 5MB</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Careers</td>
+    <td class="td-route">/careers</td>
+    <td class="td-prio-std">Standard</td>
+    <td class="td-text">• Culture description, working philosophy & employee perks<br>• Job specifications (Title, Dept, Location, Requirements)<br>• Equal Opportunity Employer (EOE) statement</td>
+    <td class="td-photo">• Team culture & cleanroom engineering photos<br>• Hackathon / launch celebration lifestyle photos</td>
+    <td class="td-specs">Photos: 1200x800px (3:2) WebP</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Newsroom</td>
+    <td class="td-route">/newsroom</td>
+    <td class="td-prio-std">Standard</td>
+    <td class="td-text">• Press Releases & Announcements (Date, Title, Body)<br>• Media contact details (PR email, Spokesperson name)<br>• Official company boilerplate ("About Andromeda Logic Corp")</td>
+    <td class="td-photo">• Media Kit ZIP (Official Logos, Colors, Product Photos)<br>• Thumbnail banner for each article (16:9 ratio)</td>
+    <td class="td-specs">Thumbnails: 1200x675px (16:9)<br>Media Kit: ZIP Archive</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+  <tr>
+    <td class="td-page">Contact</td>
+    <td class="td-route">/contact</td>
+    <td class="td-prio-high">High Priority</td>
+    <td class="td-text">• Official HQ Address, regional office locations & phone numbers<br>• Departmental routing emails (Sales, Careers, Media, Support)<br>• Dropdown category options for inquiry form</td>
+    <td class="td-photo">• Stylized vector map graphic or HQ building photography</td>
+    <td class="td-specs">Images: 1200x800px WebP / PNG</td>
+    <td class="td-status">Pending Assets</td>
+  </tr>
+</table>
+</body>
+</html>

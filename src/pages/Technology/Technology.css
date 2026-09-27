@@ -1,0 +1,92 @@
+/* Technology Hub - Quantum & Deep Space Redesign */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+.alc-tech-hub { background: #020308; color: #f5f7ff; font-family: 'Inter', sans-serif; min-height: 100vh; position: relative; overflow: hidden; }
+.alc-tech-hub::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(41, 227, 217, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(41, 227, 217, 0.04) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(circle at 50% 0%, black, transparent 80%); pointer-events: none; z-index: 0; }
+.alc-tech-hub::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(108, 76, 227, 0.15), transparent 40%), radial-gradient(circle at 20% 80%, rgba(230, 60, 140, 0.1), transparent 40%); pointer-events: none; z-index: 0; }
+.alc-tech-container { max-width: 1300px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 10; }
+.alc-tech-hero { padding: 110px 0 80px; text-align: center; position: relative; overflow: hidden; border-bottom: 1px solid rgba(41, 227, 217, 0.15); }
+.alc-tech-hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; z-index: 0; pointer-events: none; }
+.alc-tech-hero-content { position: relative; z-index: 1; }
+.alc-tech-hero::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 2px; background: linear-gradient(90deg, transparent, #29e3d9, #6c4ce3, transparent); box-shadow: 0 0 20px #29e3d9, 0 0 10px #6c4ce3; z-index: 2; }
+.alc-tech-hero-eyebrow { font-family: 'JetBrains Mono', monospace; color: #29e3d9; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 24px; display: inline-block; padding: 6px 16px; border: 1px solid rgba(41, 227, 217, 0.3); border-radius: 999px; background: rgba(41, 227, 217, 0.05); box-shadow: 0 0 15px rgba(41, 227, 217, 0.1); }
+.alc-tech-hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(48px, 6vw, 76px); font-weight: 700; line-height: 1.05; margin: 0 0 24px; background: linear-gradient(to right, #ffffff, #8a93b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.04em; }
+.alc-tech-hero p { font-size: 18px; line-height: 1.7; color: #8a93b8; max-width: 650px; margin: 0 auto; }
+.alc-tech-layout { display: grid; grid-template-columns: 320px 1fr; gap: 60px; padding: 80px 0 120px; }
+.alc-tech-sidebar { position: sticky; top: 120px; height: max-content; }
+.alc-tech-nav { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.alc-tech-nav li a { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-radius: 12px; background: rgba(11, 16, 38, 0.6); border: 1px solid rgba(138, 147, 184, 0.1); color: #8a93b8; text-decoration: none; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 500; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
+.alc-tech-nav li a::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent; transition: all 0.3s; }
+.alc-tech-nav li a:hover { background: rgba(108, 76, 227, 0.1); border-color: rgba(108, 76, 227, 0.3); color: #f5f7ff; transform: translateX(4px); }
+.alc-tech-nav li a:hover::before { background: #6c4ce3; box-shadow: 0 0 10px #6c4ce3; }
+.alc-tech-nav li a.active { background: rgba(41, 227, 217, 0.1); border-color: rgba(41, 227, 217, 0.4); color: #29e3d9; }
+.alc-tech-nav li a.active::before { background: #29e3d9; box-shadow: 0 0 12px #29e3d9; }
+.alc-tech-nav-index { font-family: 'JetBrains Mono', monospace; font-size: 11px; opacity: 0.6; }
+.alc-tech-content { display: flex; flex-direction: column; gap: 80px; }
+.alc-tech-card { background: rgba(5, 7, 13, 0.7); border: 1px solid rgba(138, 147, 184, 0.15); border-radius: 20px; padding: 48px; position: relative; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; overflow: hidden; }
+.alc-tech-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(41, 227, 217, 0.5), transparent); opacity: 0; transition: opacity 0.4s ease; }
+.alc-tech-card:hover { border-color: rgba(108, 76, 227, 0.4); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(108, 76, 227, 0.05); transform: translateY(-4px); }
+.alc-tech-card:hover::before { opacity: 1; }
+.alc-tech-card-header { margin-bottom: 24px; }
+.alc-tech-id { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #e63c8c; letter-spacing: 0.1em; margin-bottom: 12px; display: block; }
+.alc-tech-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 600; line-height: 1.2; margin: 0; color: #f5f7ff; }
+.alc-tech-narrative { font-size: 16px; line-height: 1.7; color: #8a93b8; margin-bottom: 32px; }
+.alc-tech-caps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.alc-tech-cap-item { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); padding: 16px; border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #29e3d9; display: flex; align-items: center; gap: 12px; transition: background 0.3s, border-color 0.3s; }
+.alc-tech-cap-item:hover { background: rgba(41, 227, 217, 0.06); border-color: rgba(41, 227, 217, 0.3); }
+.alc-tech-cap-item::before { content: 'ℹ'; color: #6c4ce3; }
+.alc-tech-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 32px; padding-top: 32px; border-top: 1px dashed rgba(138, 147, 184, 0.2); }
+.alc-tech-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; cursor: pointer; }
+.alc-tech-btn--primary { background: linear-gradient(110deg, #6c4ce3, #29e3d9); color: #ffffff; border: none; }
+.alc-tech-btn--primary:hover { box-shadow: 0 8px 24px rgba(41, 227, 217, 0.3); transform: translateY(-2px); }
+.alc-tech-btn--ghost { background: transparent; color: #8a93b8; border: 1px solid rgba(138, 147, 184, 0.3); }
+.alc-tech-btn--ghost:hover { background: rgba(255, 255, 255, 0.05); color: #f5f7ff; border-color: rgba(255, 255, 255, 0.4); }
+.alc-tech-faq { margin: 120px 0; padding: 80px; background: radial-gradient(circle at center, rgba(11, 16, 38, 0.8), rgba(5, 7, 13, 1)); border: 1px solid rgba(108, 76, 227, 0.2); border-radius: 24px; position: relative; }
+.alc-tech-faq h2 { font-family: 'Space Grotesk', sans-serif; font-size: 36px; text-align: center; margin-bottom: 48px; color: #f5f7ff; }
+.alc-faq-list { display: flex; flex-direction: column; gap: 16px; max-width: 800px; margin: 0 auto; }
+.alc-faq-item { background: rgba(5, 7, 13, 0.5); border: 1px solid rgba(138, 147, 184, 0.2); border-radius: 12px; overflow: hidden; transition: all 0.3s; }
+.alc-faq-item.active { border-color: #6c4ce3; box-shadow: 0 0 20px rgba(108, 76, 227, 0.15); }
+.alc-faq-question { padding: 24px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500; color: #f5f7ff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.02); }
+.alc-faq-question::after { content: '+'; font-family: 'JetBrains Mono', monospace; color: #29e3d9; font-size: 20px; transition: transform 0.3s; }
+.alc-faq-item.active .alc-faq-question::after { transform: rotate(45deg); color: #e63c8c; }
+.alc-faq-answer { padding: 0 24px 24px; font-size: 15px; line-height: 1.6; color: #8a93b8; display: none; }
+.alc-faq-item.active .alc-faq-answer { display: block; animation: fadeIn 0.4s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.alc-tech-conversion { text-align: center; padding: 100px 0; border-top: 1px solid rgba(41, 227, 217, 0.1); background: radial-gradient(ellipse at top center, rgba(41, 227, 217, 0.05), transparent 70%); }
+.alc-tech-conversion h2 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; margin-bottom: 24px; }
+@media (max-width: 1024px) { .alc-tech-layout { grid-template-columns: 1fr; padding-top: 40px; } .alc-tech-sidebar { position: static; margin-bottom: 40px; } .alc-tech-nav { flex-direction: row; flex-wrap: wrap; gap: 8px; } .alc-tech-faq { padding: 40px 24px; } }
+@media (max-width: 640px) { .alc-tech-hero h1 { font-size: 36px; } .alc-tech-card { padding: 24px; } .alc-tech-actions { flex-direction: column; } .alc-tech-btn { width: 100%; justify-content: center; } }
+
+.alc-tech-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 44px;
+  animation: fadeHint 2s ease 1.2s both;
+}
+.alc-tech-scroll-hint span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: #8a93b8;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+.alc-tech-scroll-arrow {
+  width: 16px;
+  height: 16px;
+  border-right: 1.5px solid #29e3d9;
+  border-bottom: 1.5px solid #29e3d9;
+  transform: rotate(45deg);
+  animation: arrowBounce 1.7s ease-in-out infinite;
+}
+
+@keyframes fadeHint {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes arrowBounce {
+  0%, 100% { transform: rotate(45deg) translateY(0);   opacity: 1;   }
+  50%       { transform: rotate(45deg) translateY(7px); opacity: 0.4; }
+}
