@@ -10,8 +10,6 @@ import logoIcon from "../assets/logo.png";
 
 import { sendNovaMessage } from "../services/novaService.js";
 
-
-
 // Stable per-visit session id for NOVA conversation logging (Section 10.6).
 
 function getNovaSessionId() {
@@ -46,11 +44,7 @@ function getNovaSessionId() {
 
 }
 
-
-
 const NOVA_ENABLED = import.meta.env.VITE_NOVA_ENABLED !== "false";
-
-
 
 // ─── Mega-menu data ────────────────────────────────────────────────────────────
 
@@ -474,10 +468,6 @@ const MEGA_MENU = [
 
 ];
 
-
-
-
-
 export default function MainLayout() {
 
   const location = useLocation();
@@ -491,8 +481,6 @@ export default function MainLayout() {
   const [activeMenu, setActiveMenu] = useState(null);
 
   const hoverTimeout = useRef(null);
-
-
 
   // NOVA
 
@@ -509,8 +497,6 @@ export default function MainLayout() {
   const novaSessionId = useRef(getNovaSessionId());
 
   const novaBodyRef = useRef(null);
-
-
 
   const askNova = (text) => {
 
@@ -540,7 +526,7 @@ export default function MainLayout() {
 
             role: "assistant",
 
-            text: reply || "NOVA didn't return a response.",
+            text: reply || "ALC didn't return a response.",
 
             citations: Array.isArray(citations) ? citations : [],
 
@@ -554,7 +540,7 @@ export default function MainLayout() {
 
         setNovaError(
 
-          err?.uiMessage || "NOVA is unavailable right now. Please try again."
+          err?.uiMessage || "ALC is unavailable right now. Please try again."
 
         );
 
@@ -563,8 +549,6 @@ export default function MainLayout() {
       .finally(() => setNovaLoading(false));
 
   };
-
-
 
   // Scroll NOVA body
 
@@ -578,61 +562,88 @@ export default function MainLayout() {
 
   }, [novaMessages, novaLoading]);
 
-
-
   // Scroll listener — hide desktop navbar/logo after the page moves away from top.
+
   // Capture-phase document scrolling is included so this also works if a page
+
   // section/layout becomes the active scroll container.
+
   useEffect(() => {
+
     let scrollTimeout;
 
     const getScrollTop = (event) => {
+
       const windowTop =
+
         window.scrollY ||
+
         document.documentElement.scrollTop ||
+
         document.body.scrollTop ||
+
         0;
 
       const target = event?.target;
+
       const targetTop =
+
         target &&
+
         target !== document &&
+
         target !== window &&
+
         typeof target.scrollTop === "number"
+
           ? target.scrollTop
+
           : 0;
 
       return Math.max(windowTop, targetTop);
+
     };
 
     const handleScroll = (event) => {
+
       const hasScrolled = getScrollTop(event) > 20;
 
       setScrolled(hasScrolled);
+
       document.body.classList.toggle("alc-page-scrolled", hasScrolled);
 
       document.body.classList.add("is-scrolling");
+
       clearTimeout(scrollTimeout);
 
       scrollTimeout = setTimeout(() => {
+
         document.body.classList.remove("is-scrolling");
+
       }, 150);
+
     };
 
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+
     document.addEventListener("scroll", handleScroll, true);
 
     return () => {
+
       window.removeEventListener("scroll", handleScroll);
+
       document.removeEventListener("scroll", handleScroll, true);
 
       clearTimeout(scrollTimeout);
 
       document.body.classList.remove("alc-page-scrolled");
+
       document.body.classList.remove("is-scrolling");
+
     };
+
   }, []);
 
   // Close mobile + menu on route change
@@ -647,8 +658,6 @@ export default function MainLayout() {
 
   }, [location.pathname]);
 
-
-
   // Lock body scroll when mobile open
 
   useEffect(() => {
@@ -659,17 +668,93 @@ export default function MainLayout() {
 
   }, [mobileOpen]);
 
-
-
-  // Scroll to top on route change
+  // Always start every routed page from the top.
 
   useEffect(() => {
 
-    window.scrollTo(0, 0);
+    const resetScrollToTop = () => {
 
-  }, [location.pathname]);
+      window.scrollTo({
 
+        top: 0,
 
+        left: 0,
+
+        behavior: "auto",
+
+      });
+
+      document.documentElement.scrollTop = 0;
+
+      document.body.scrollTop = 0;
+
+      const mainElement = document.querySelector("main");
+
+      if (mainElement) {
+
+        mainElement.scrollTop = 0;
+
+        if (typeof mainElement.scrollTo === "function") {
+
+          mainElement.scrollTo({
+
+            top: 0,
+
+            left: 0,
+
+            behavior: "auto",
+
+          });
+
+        }
+
+      }
+
+      document
+
+        .querySelectorAll(
+
+          "[data-scroll-container], .scroll-container, .page-scroll, .main-scroll"
+
+        )
+
+        .forEach((element) => {
+
+          element.scrollTop = 0;
+
+          if (typeof element.scrollTo === "function") {
+
+            element.scrollTo({
+
+              top: 0,
+
+              left: 0,
+
+              behavior: "auto",
+
+            });
+
+          }
+
+        });
+
+    };
+
+    resetScrollToTop();
+
+    const frameId = window.requestAnimationFrame(() => {
+
+      resetScrollToTop();
+
+    });
+
+    return () => {
+
+      window.cancelAnimationFrame(frameId);
+
+    };
+
+  }, [location.pathname, location.search]);
 
   // Escape key closes menus
 
@@ -693,8 +778,6 @@ export default function MainLayout() {
 
   }, []);
 
-
-
   // ── Logo click handler ─────────────────────────────────────────────────────
 
   const handleLogoClick = (e) => {
@@ -709,8 +792,6 @@ export default function MainLayout() {
 
   };
 
-
-
   const handleNavEnter = (id) => {
 
     clearTimeout(hoverTimeout.current);
@@ -718,8 +799,6 @@ export default function MainLayout() {
     setActiveMenu(id);
 
   };
-
-
 
   const handleNavLeave = () => {
 
@@ -731,19 +810,13 @@ export default function MainLayout() {
 
   };
 
-
-
   const handlePanelEnter = () => {
 
     clearTimeout(hoverTimeout.current);
 
   };
 
-
-
   const currentMenu = MEGA_MENU.find((m) => m.id === activeMenu);
-
-
 
   return (
 
@@ -752,8 +825,6 @@ export default function MainLayout() {
       {/* Film grain noise overlay */}
 
       <div className="alc-noise" aria-hidden="true" />
-
-
 
       {/* ── Fixed Big Logo ────────────────────────────────────────────────── */}
 
@@ -773,15 +844,11 @@ export default function MainLayout() {
 
       </Link>
 
-
-
       {/* ── Header ──────────────────────────────────────────────────────────── */}
 
-      <header className={`alc-header ${scrolled ? "is-scrolled" : ""}`}>
+      <header className={`alc-header ${scrolled ? "is-scrolled" : ""} ${mobileOpen ? "is-menu-open" : ""}`}>
 
         <div className="alc-header__inner">
-
-
 
           {/* Desktop nav — JS hover state for smooth cross-item transitions */}
 
@@ -819,8 +886,6 @@ export default function MainLayout() {
 
           </nav>
 
-
-
           {/* CTA */}
 
           <Link to="/contact" className="alc-button alc-button--primary alc-header__cta">
@@ -828,8 +893,6 @@ export default function MainLayout() {
             Mission Consultation
 
           </Link>
-
-
 
           {/* Mobile hamburger */}
 
@@ -857,8 +920,6 @@ export default function MainLayout() {
 
       </header>
 
-
-
       {/* ── Full-width Mega Panel ─────────────────────────────────────────── */}
 
       <div
@@ -876,8 +937,6 @@ export default function MainLayout() {
         {/* Top accent bar */}
 
         <div className="alc-mega-fullpanel__bar" aria-hidden="true" />
-
-
 
         <div className="alc-mega-fullpanel__inner">
 
@@ -933,13 +992,9 @@ export default function MainLayout() {
 
               </div>
 
-
-
               {/* Divider */}
 
               <div className="alc-mega-full-divider" aria-hidden="true" />
-
-
 
               {/* Columns */}
 
@@ -1001,8 +1056,6 @@ export default function MainLayout() {
 
       </div>
 
-
-
       {/* Backdrop dimmer */}
 
       <div
@@ -1014,10 +1067,6 @@ export default function MainLayout() {
         aria-hidden="true"
 
       />
-
-
-
-
 
       {/* ── Mobile panel ──────────────────────────────────────────────────── */}
 
@@ -1103,8 +1152,6 @@ export default function MainLayout() {
 
               </button>
 
-
-
               {/* Mobile sub-links accordion */}
 
               <div
@@ -1153,8 +1200,6 @@ export default function MainLayout() {
 
           ))}
 
-
-
           <Link
 
             to="/contact"
@@ -1173,127 +1218,72 @@ export default function MainLayout() {
 
       </div>
 
-
-
       <main>
 
         <Outlet />
 
       </main>
 
-
-
       <footer className="alc-footer">
-
         <div className="alc-container alc-footer__grid">
-
           <div className="alc-footer__brand">
-
             <Link to="/" className="alc-footer__logo-link">
-
-              <img src={logoIcon} alt="Andromeda Logic Corp" className="alc-footer__logo-icon" />
-
+              <img
+                src={logoIcon}
+                alt="Andromeda Logic Corp"
+                className="alc-footer__logo-icon"
+              />
               <span className="alc-footer__logo-text">Andromeda</span>
-
             </Link>
 
-            <a 
-
-              href="https://www.linkedin.com/company/andromeda-logic-corp-private-limited/" 
-
-              target="_blank" 
-
-              rel="noopener noreferrer" 
-
+            <a
+              href="https://www.linkedin.com/company/andromeda-logic-corp-private-limited/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="alc-footer__social-link"
-
             >
-
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
               </svg>
-
-              Follow us on LinkedIn
-
+              <span>Follow us on LinkedIn</span>
             </a>
-
           </div>
 
-
-
-          <div>
-
+          <div className="alc-footer__column">
             <h3>Explore</h3>
-
             <div className="alc-footer__links">
-
               <Link to="/">Home</Link>
-
               <Link to="/technology">Technology</Link>
-
               <Link to="/products">Products</Link>
-
               <Link to="/solutions">Solutions</Link>
-
             </div>
-
           </div>
 
-
-
-          <div>
-
+          <div className="alc-footer__column">
             <h3>Company</h3>
-
             <div className="alc-footer__links">
-
               <Link to="/about">About Us</Link>
-
               <Link to="/careers">Careers</Link>
-
               <Link to="/newsroom">Newsroom</Link>
-
-              <Link to="/investors">Investors & Partners</Link>
-
+              <Link to="/investors">Investors &amp; Partners</Link>
             </div>
-
           </div>
 
-
-
-          <div>
-
+          <div className="alc-footer__column">
             <h3>Resources</h3>
-
             <div className="alc-footer__links">
-
               <Link to="/library">Technical Library</Link>
-
               <Link to="/missions">Case Studies</Link>
-
-              <Link to="/trust">Trust & Compliance</Link>
-
+              <Link to="/trust">Trust &amp; Compliance</Link>
               <Link to="/contact">Contact</Link>
-
             </div>
-
           </div>
-
         </div>
-
-
 
         <div className="alc-footer__bottom">
-
           &copy; {new Date().getFullYear()} Andromeda Logic Corp Private Limited. All rights reserved.
-
         </div>
-
       </footer>
-
-
 
       {NOVA_ENABLED && (
 
@@ -1301,19 +1291,17 @@ export default function MainLayout() {
 
           {novaOpen && (
 
-            <div className="alc-nova__panel" role="dialog" aria-label="NOVA AI Mission Assistant">
+            <div className="alc-nova__panel" role="dialog" aria-label="ALC AI Mission Assistant">
 
               <div className="alc-nova__top">
 
                 <div className="alc-nova__title">
 
-                  <strong>NOVA</strong>
+                  <strong>ALC</strong>
 
                   <span>Mission Intelligence Interface</span>
 
                 </div>
-
-
 
                 <button
 
@@ -1321,7 +1309,7 @@ export default function MainLayout() {
 
                   onClick={() => setNovaOpen(false)}
 
-                  aria-label="Close NOVA"
+                  aria-label="Close ALC"
 
                 >
 
@@ -1330,8 +1318,6 @@ export default function MainLayout() {
                 </button>
 
               </div>
-
-
 
               <div className="alc-nova__body" ref={novaBodyRef}>
 
@@ -1343,13 +1329,11 @@ export default function MainLayout() {
 
                       Explore Andromeda Logic technologies, platforms, research,
 
-                      mission stories, and engagement paths through the NOVA
+                      mission stories, and engagement paths through the ALC
 
                       interface.
 
                     </p>
-
-
 
                     <div className="alc-nova__quick">
 
@@ -1382,8 +1366,6 @@ export default function MainLayout() {
                   </>
 
                 )}
-
-
 
                 {novaMessages.map((msg, i) => (
 
@@ -1441,7 +1423,7 @@ export default function MainLayout() {
 
                     >
 
-                      {msg.role === "user" ? "You" : "NOVA"}
+                      {msg.role === "user" ? "You" : "ALC"}
 
                     </span>
 
@@ -1493,8 +1475,6 @@ export default function MainLayout() {
 
                 ))}
 
-
-
                 {novaLoading && (
 
                   <div
@@ -1505,13 +1485,11 @@ export default function MainLayout() {
 
                   >
 
-                    NOVA is thinking…
+                    ALC is thinking…
 
                   </div>
 
                 )}
-
-
 
                 {novaError && (
 
@@ -1524,8 +1502,6 @@ export default function MainLayout() {
                 )}
 
               </div>
-
-
 
               <form
 
@@ -1551,9 +1527,9 @@ export default function MainLayout() {
 
                   onChange={(e) => setNovaInput(e.target.value)}
 
-                  placeholder="Ask NOVA…"
+                  placeholder="Ask ALC…"
 
-                  aria-label="Ask NOVA"
+                  aria-label="Ask ALC"
 
                   style={{
 
@@ -1611,15 +1587,13 @@ export default function MainLayout() {
 
           )}
 
-
-
           <button
 
             className="alc-nova__launcher"
 
             onClick={() => setNovaOpen((prev) => !prev)}
 
-            aria-label="Open NOVA mission assistant"
+            aria-label="Open ALC mission assistant"
 
             aria-expanded={novaOpen}
 

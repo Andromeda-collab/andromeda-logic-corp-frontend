@@ -15,7 +15,7 @@ export default function NovaLauncher() {
         onClick={() => setOpen((o) => !o)}
         aria-label="Open NOVA AI Mission Assistant"
       >
-        NOVA
+        ALC
       </button>
       {open && <NovaPanel onClose={() => setOpen(false)} />}
     </>

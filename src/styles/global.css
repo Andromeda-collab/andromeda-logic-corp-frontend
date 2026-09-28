@@ -1,1509 +1,2519 @@
 @import "./tokens.css";
 
 /* ============================================================
+
    RESET & BASE
+
    ============================================================ */
 
 * {
+
   box-sizing: border-box;
+
 }
 
 html,
+
 body,
-#root {
+
+\#root {
+
   height: 100%;
+
 }
 
 body {
+
   margin: 0;
+
   background-color: var(--alc-void-black);
+
   color: var(--alc-signal-white);
+
   font-family: var(--alc-font-body);
+
   font-size: var(--alc-fs-body);
+
   line-height: 1.6;
+
   overflow-x: hidden;
+
 }
 
 h1,
+
 h2,
+
 h3 {
+
   font-family: var(--alc-font-display);
+
   line-height: 1.15;
+
   margin: 0 0 var(--alc-space-unit) 0;
+
 }
 
 a {
+
   color: var(--alc-andromeda-violet);
+
   text-decoration: none;
+
 }
 
 img {
+
   max-width: 100%;
+
   display: block;
+
 }
 
 .alc-container {
+
   max-width: var(--alc-content-max-width);
+
   margin: 0 auto;
+
   padding: 0 24px;
+
 }
 
 @media (max-width: 480px) {
+
   .alc-container {
+
     padding: 0 16px;
+
   }
+
 }
 
 /* Gradient surface ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â reserved per usage rule in Section 7.2:
+
    primary CTA, hero wash, active nav state, NOVA chrome only. */
+
 .alc-gradient-surface {
+
   background: var(--alc-gradient-andromeda-drift);
+
 }
 
 /* ============================================================
+
    SECTION RHYTHM
+
    ============================================================ */
 
 .alc-section {
+
   padding: var(--alc-rhythm-mobile) 0;
+
 }
 
 @media (min-width: 768px) {
+
   .alc-section {
+
     padding: var(--alc-rhythm-tablet) 0;
+
   }
+
 }
 
 @media (min-width: 1024px) {
+
   .alc-section {
+
     padding: var(--alc-rhythm-desktop) 0;
+
   }
+
 }
 
 /* ============================================================
+
    HEADER
+
    ============================================================ */
 
 .alc-header {
+
   position: sticky;
+
   top: 0;
+
   z-index: 50;
+
   background: var(--alc-deep-space-indigo);
+
   border-bottom: 1px solid rgba(138, 147, 184, 0.2);
+
 }
 
 .alc-header__inner {
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   padding: 18px 24px;
+
   gap: 32px;
+
 }
 
 .alc-header__logo {
+
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
   color: var(--alc-signal-white);
+
   font-family: var(--alc-font-display);
+
   font-weight: 700;
+
   font-size: 27px;
+
   line-height: 1;
+
   white-space: nowrap;
+
 }
 
 .alc-header__logo-icon {
+
   height: 52px;
+
   width: auto;
+
 }
 
 .alc-header__nav {
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   gap: 32px;
+
   flex: 1;
+
 }
 
 .alc-header__nav a {
+
   color: var(--alc-slate);
+
   font-size: 16px;
+
   font-weight: 500;
+
   white-space: nowrap;
+
   transition: color 0.2s ease;
+
 }
 
 .alc-header__nav a:hover {
+
   color: var(--alc-signal-white);
+
 }
 
 /* Tablet: shrink logo text, tighten nav gaps */
+
 @media (max-width: 1024px) {
+
   .alc-header__logo span {
+
     display: none; /* keep just the icon mark to save space */
+
   }
+
   .alc-header__nav {
+
     gap: 20px;
+
   }
+
   .alc-header__nav a {
+
     font-size: 15px;
+
   }
+
 }
 
 /* Mobile: stack into a compact bar; nav scrolls horizontally rather
+
    than wrapping, so the header height stays predictable.
+
    TODO: replace with a proper hamburger + slide-out mega-menu drawer. */
+
 @media (max-width: 640px) {
+
   .alc-header__inner {
+
     flex-wrap: wrap;
+
     padding: 10px 16px;
+
     gap: 10px;
+
   }
+
   .alc-header__logo-icon {
+
     height: 26px;
+
   }
+
   .alc-header__nav {
+
     order: 3;
+
     width: 100%;
+
     overflow-x: auto;
+
     gap: 16px;
+
     padding-bottom: 4px;
+
     -webkit-overflow-scrolling: touch;
+
   }
+
   .alc-header__nav::-webkit-scrollbar {
+
     display: none;
+
   }
+
   .alc-button--primary {
+
     padding: 8px 14px;
+
     font-size: 13px;
+
   }
+
 }
 
 /* ============================================================
+
    BUTTONS
+
    ============================================================ */
 
 .alc-button {
+
   display: inline-block;
+
   padding: 12px 24px;
+
   border-radius: 8px;
+
   font-weight: 600;
+
   cursor: pointer;
+
   border: none;
+
   text-decoration: none;
+
   font-size: 14px;
+
   text-align: center;
+
 }
 
 .alc-button--primary {
+
   background: var(--alc-gradient-andromeda-drift);
+
   color: var(--alc-signal-white);
+
 }
 
 .alc-button--secondary {
+
   background: transparent;
+
   color: var(--alc-signal-white);
+
   border: 1px solid var(--alc-slate);
+
 }
 
 /* ============================================================
+
    HERO
+
    ============================================================ */
 
 .alc-hero {
+
   padding: 64px 0;
+
   text-align: center;
+
 }
 
 .alc-hero h1 {
+
   font-size: var(--alc-fs-display-l);
+
 }
 
 .alc-hero__subtitle {
+
   max-width: 640px;
+
   margin: 16px auto 32px;
+
   color: var(--alc-slate);
+
 }
 
 .alc-hero__actions {
+
   display: flex;
+
   gap: 16px;
+
   justify-content: center;
+
   flex-wrap: wrap;
+
 }
 
 @media (max-width: 640px) {
+
   .alc-hero {
+
     padding: 40px 0;
+
   }
+
   .alc-hero h1 {
+
     font-size: 32px; /* steps down from display-l per Section 7.3 mobile tier */
+
   }
+
   .alc-hero__subtitle {
+
     font-size: 14px;
+
     padding: 0 8px;
+
   }
+
   .alc-hero__actions {
+
     flex-direction: column;
+
     align-items: stretch;
+
   }
+
   .alc-hero__actions .alc-button {
+
     width: 100%;
+
   }
+
 }
 
 /* ============================================================
+
    GRIDS (proof tiles, pillars, personas)
+
    ============================================================ */
 
 .alc-proof-grid,
+
 .alc-pillar-grid,
+
 .alc-persona-grid {
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
   gap: 24px;
+
   margin-top: 24px;
+
 }
 
 @media (max-width: 640px) {
+
   .alc-proof-grid,
+
   .alc-pillar-grid,
+
   .alc-persona-grid {
+
     grid-template-columns: 1fr;
+
     gap: 16px;
+
   }
+
 }
 
 /* ============================================================
+
    HORIZONTAL RAIL (products)
+
    ============================================================ */
 
 .alc-rail {
+
   display: flex;
+
   gap: 16px;
+
   overflow-x: auto;
+
   margin-top: 24px;
+
   padding-bottom: 8px;
+
   -webkit-overflow-scrolling: touch;
+
   scroll-snap-type: x proximity;
+
 }
 
 .alc-rail .alc-card {
+
   min-width: 240px;
+
   flex-shrink: 0;
+
   scroll-snap-align: start;
+
 }
 
 @media (max-width: 480px) {
+
   .alc-rail .alc-card {
+
     min-width: 200px;
+
   }
+
 }
 
 /* ============================================================
+
    CARDS
+
    ============================================================ */
 
 .alc-card {
+
   background: var(--alc-deep-space-indigo);
+
   border-radius: 12px;
+
   padding: 24px;
+
   display: block;
+
   color: var(--alc-signal-white);
+
 }
 
 .alc-card--persona {
+
   text-align: center;
+
   font-weight: 600;
+
 }
 
 @media (max-width: 480px) {
+
   .alc-card {
+
     padding: 18px;
+
   }
+
 }
 
 /* ============================================================
+
    PROOF TILES
+
    ============================================================ */
 
 .alc-proof-tile {
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   text-align: center;
+
   padding: 16px;
+
   border-radius: 12px;
+
   background: var(--alc-deep-space-indigo);
+
   color: var(--alc-signal-white);
+
 }
 
 .alc-proof-tile__stat {
+
   font-family: var(--alc-font-display);
+
   font-size: var(--alc-fs-h1);
+
   margin: 8px 0 4px;
+
 }
 
 @media (max-width: 480px) {
+
   .alc-proof-tile__stat {
+
     font-size: 24px;
+
   }
+
 }
 
 /* ============================================================
+
    STATUS BADGES
+
    ============================================================ */
 
 .alc-status-badge {
+
   display: inline-block;
+
   font-size: 12px;
+
   padding: 2px 8px;
+
   border-radius: 999px;
+
   margin-bottom: 8px;
+
 }
 
 .alc-status-badge--flight-proven {
+
   background: var(--alc-status-flight-proven);
+
   color: #05070d;
+
 }
 
 .alc-status-badge--in-development {
+
   background: var(--alc-status-in-development);
+
   color: #05070d;
+
 }
 
 .alc-status-badge--roadmap {
+
   background: var(--alc-status-roadmap);
+
   color: #05070d;
+
 }
 
 /* ============================================================
+
    CONVERSION BAND
+
    ============================================================ */
 
 .alc-conversion-band {
+
   text-align: center;
+
 }
 
 /* ============================================================
-   FOOTER
-   ============================================================ */
 
-.alc-footer {
-  background: var(--alc-void-black);
-  border-top: 1px solid rgba(138, 147, 184, 0.2);
-  padding-top: 48px;
-  margin-top: 64px;
-}
-
-.alc-footer__brand {
-  margin-bottom: 32px;
-}
-
-.alc-footer__logo {
-  height: 90px;
-  width: auto;
-}
-
-.alc-footer__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 32px;
-  padding-bottom: 32px;
-}
-
-.alc-footer__grid h3 {
-  font-size: 14px;
-  color: var(--alc-slate);
-  margin-bottom: 12px;
-}
-
-.alc-footer__grid a {
-  display: block;
-  color: var(--alc-signal-white);
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.alc-footer__bottom {
-  border-top: 1px solid rgba(138, 147, 184, 0.2);
-  padding: 16px 24px;
-  font-size: 12px;
-  color: var(--alc-slate);
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  .alc-footer {
-    padding-top: 32px;
-    margin-top: 40px;
-    text-align: center;
-  }
-  .alc-footer__logo {
-    height: 70px;
-    margin: 0 auto;
-  }
-  .alc-footer__grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    text-align: left;
-  }
-}
-
-@media (max-width: 400px) {
-  .alc-footer__grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================
    COOKIE CONSENT BANNER
+
    ============================================================ */
 
 .alc-cookie-consent {
+
   position: fixed;
+
   bottom: 0;
+
   left: 0;
+
   right: 0;
+
   z-index: 100;
+
   background: var(--alc-deep-space-indigo);
+
   border-top: 1px solid rgba(138, 147, 184, 0.3);
+
   padding: 16px 24px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   gap: 16px;
+
   flex-wrap: wrap;
+
 }
 
 .alc-cookie-consent p {
+
   margin: 0;
+
   font-size: 13px;
+
   color: var(--alc-slate);
+
   flex: 1;
+
   min-width: 200px;
+
 }
 
 .alc-cookie-consent__actions {
+
   display: flex;
+
   gap: 8px;
+
   flex-shrink: 0;
+
 }
 
 .alc-cookie-consent__actions button {
+
   padding: 8px 16px;
+
   border-radius: 6px;
+
   border: 1px solid var(--alc-slate);
+
   background: transparent;
+
   color: var(--alc-signal-white);
+
   cursor: pointer;
+
   font-size: 13px;
+
   white-space: nowrap;
+
 }
 
 @media (max-width: 640px) {
+
   .alc-cookie-consent {
+
     flex-direction: column;
+
     align-items: stretch;
+
     padding: 14px 16px;
+
   }
+
   .alc-cookie-consent__actions {
+
     width: 100%;
+
   }
+
   .alc-cookie-consent__actions button {
+
     flex: 1;
+
   }
+
 }
 
 /* ============================================================
+
    NOVA LAUNCHER & PANEL
+
    ============================================================ */
 
 .alc-nova-launcher {
+
   position: fixed;
+
   bottom: 24px;
+
   right: 24px;
+
   z-index: 60;
+
   width: 56px;
+
   height: 56px;
+
   border-radius: 50%;
+
   border: none;
+
   color: var(--alc-signal-white);
+
   font-family: var(--alc-font-display);
+
   font-size: 11px;
+
   font-weight: 700;
+
   cursor: pointer;
+
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+
 }
 
 .alc-nova-panel {
+
   position: fixed;
+
   bottom: 92px;
+
   right: 24px;
+
   z-index: 60;
+
   width: 360px;
+
   max-width: calc(100vw - 32px);
+
   height: 480px;
+
   max-height: calc(100vh - 140px);
+
   background: var(--alc-deep-space-indigo);
+
   border: 1px solid rgba(108, 76, 227, 0.4);
+
   border-radius: 16px;
+
   display: flex;
+
   flex-direction: column;
+
   overflow: hidden;
+
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
 }
 
 .alc-nova-panel__header {
+
   display: flex;
+
   align-items: center;
+
   justify-content: space-between;
+
   padding: 12px 16px;
+
   background: var(--alc-gradient-andromeda-drift);
+
   color: var(--alc-signal-white);
+
   font-size: 14px;
+
   font-weight: 600;
+
 }
 
 .alc-nova-panel__header button {
+
   background: none;
+
   border: none;
+
   color: var(--alc-signal-white);
+
   font-size: 20px;
+
   cursor: pointer;
+
   line-height: 1;
+
 }
 
 .alc-nova-panel__body {
+
   flex: 1;
+
   padding: 16px;
+
   overflow-y: auto;
+
   font-size: 14px;
+
   color: var(--alc-slate);
+
 }
 
 .alc-nova-panel__input {
+
   border-top: 1px solid rgba(138, 147, 184, 0.2);
+
   padding: 12px;
+
 }
 
 .alc-nova-panel__input input {
+
   width: 100%;
+
   padding: 10px 12px;
+
   border-radius: 8px;
+
   border: 1px solid rgba(138, 147, 184, 0.3);
+
   background: var(--alc-void-black);
+
   color: var(--alc-signal-white);
+
   font-size: 14px;
+
 }
 
 @media (max-width: 480px) {
+
   .alc-nova-launcher {
+
     bottom: 16px;
+
     right: 16px;
+
     width: 48px;
+
     height: 48px;
+
     font-size: 10px;
+
   }
+
   .alc-nova-panel {
+
     bottom: 0;
+
     right: 0;
+
     left: 0;
+
     width: 100%;
+
     max-width: 100%;
+
     height: 70vh;
+
     max-height: 70vh;
+
     border-radius: 16px 16px 0 0;
+
   }
+
 }
 
 /* ============================================================
+
    UNIQUE "STRUCTURED COSMOS" HOME PAGE STYLES
+
    ============================================================ */
 
 /* Section Variants */
+
 .alc-section--void {
+
   background-color: var(--alc-void-black);
+
 }
 
 .alc-section--indigo {
+
   background-color: var(--alc-deep-space-indigo);
+
 }
 
 .alc-border-top {
+
   border-top: 1px solid rgba(138, 147, 184, 0.2);
+
 }
 
 .alc-border-bottom {
+
   border-bottom: 1px solid rgba(138, 147, 184, 0.2);
+
 }
 
 /* Hero Section */
+
 .alc-hero-section {
+
   position: relative;
+
   min-height: 90vh;
+
   display: flex;
+
   align-items: center;
+
   overflow: hidden;
+
   border-bottom: 1px solid rgba(138, 147, 184, 0.2);
+
 }
 
 .alc-hero-bg {
+
   position: absolute;
+
   top: 0; left: 0; width: 100%; height: 100%;
+
   z-index: 0;
+
 }
 
 .alc-hero-overlay {
+
   position: absolute;
+
   top: 0; left: 0; width: 100%; height: 100%;
+
   background: radial-gradient(circle at 50% 50%, transparent 20%, var(--alc-void-black) 100%);
+
   z-index: 1;
+
 }
 
 .alc-image-placeholder {
+
   width: 100%;
+
   height: 100%;
+
   min-height: 300px;
+
   background: var(--alc-deep-space-indigo);
+
   background-image: 
+
     linear-gradient(rgba(138, 147, 184, 0.1) 1px, transparent 1px),
+
     linear-gradient(90deg, rgba(138, 147, 184, 0.1) 1px, transparent 1px);
+
   background-size: 40px 40px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   color: var(--alc-slate);
+
   font-family: var(--alc-font-mono);
+
   font-size: 12px;
+
   border: 1px dashed rgba(138, 147, 184, 0.3);
+
 }
 
 .alc-hero-content {
+
   position: relative;
+
   z-index: 2;
+
   width: 100%;
+
 }
 
 .alc-telemetry-box {
+
   max-width: 800px;
+
   padding: 48px;
+
   border-left: 2px solid var(--alc-andromeda-violet);
+
   background: rgba(5, 7, 13, 0.7);
+
   backdrop-filter: blur(8px);
+
 }
 
 .alc-hero-title {
+
   font-size: var(--alc-fs-display-l);
+
   line-height: 1.1;
+
   margin-bottom: 24px;
+
 }
 
 .alc-text-gradient {
+
   background: var(--alc-gradient-andromeda-drift);
+
   -webkit-background-clip: text;
+
   -webkit-text-fill-color: transparent;
+
   display: inline-block;
+
 }
 
 .alc-hero-subtitle {
+
   font-size: 18px;
+
   color: var(--alc-slate);
+
   margin-bottom: 40px;
+
   max-width: 600px;
+
 }
 
 .alc-hero-actions {
+
   display: flex;
+
   gap: 16px;
+
 }
 
 /* Proof Grid */
+
 .alc-proof-grid-unique {
+
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 1px;
+
   background: rgba(138, 147, 184, 0.2); /* Creates the thin border lines */
+
   border: 1px solid rgba(138, 147, 184, 0.2);
+
 }
 
 .alc-proof-item {
+
   background: var(--alc-void-black);
+
   padding: 40px 24px;
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   text-align: center;
-  transition: background 0.3s ease;
+
+  transition: *background* 0.3s ease;
+
 }
 
 .alc-proof-item:hover {
+
   background: var(--alc-deep-space-indigo);
+
 }
 
 .alc-proof-num {
+
   font-family: var(--alc-font-mono);
+
   font-size: var(--alc-fs-h1);
+
   color: var(--alc-signal-white);
+
   margin-bottom: 12px;
+
 }
 
 .alc-proof-label {
+
   font-size: 14px;
+
   color: var(--alc-slate);
+
   text-transform: uppercase;
+
   letter-spacing: 1px;
+
 }
 
 /* Section Header */
+
 .alc-section-header {
+
   margin-bottom: 64px;
+
 }
 
 .alc-section-header h2 {
+
   font-size: var(--alc-fs-h1);
+
 }
 
 .alc-section-header p {
+
   color: var(--alc-slate);
+
   font-size: 18px;
+
   max-width: 600px;
+
 }
 
 /* Pillars Grid */
+
 .alc-pillar-grid-unique {
+
   display: grid;
+
   grid-template-columns: repeat(2, 1fr);
+
   gap: 24px;
+
 }
 
 .alc-pillar-card {
+
   border: 1px solid rgba(138, 147, 184, 0.2);
+
   padding: 40px;
+
   background: var(--alc-void-black);
+
   position: relative;
+
   overflow: hidden;
+
 }
 
 .alc-pillar-card::before {
+
   content: '';
+
   position: absolute;
+
   top: 0; left: 0; width: 100%; height: 2px;
+
   background: var(--alc-gradient-andromeda-drift);
+
   transform: scaleX(0);
+
   transform-origin: left;
+
   transition: transform 0.4s ease;
+
 }
 
 .alc-pillar-card:hover::before {
+
   transform: scaleX(1);
+
 }
 
 .alc-pillar-number {
+
   font-family: var(--alc-font-mono);
+
   color: var(--alc-andromeda-violet);
+
   margin-bottom: 16px;
+
   font-size: 18px;
+
 }
 
 .alc-pillar-card h3 {
+
   font-size: var(--alc-fs-h2);
+
   margin-bottom: 16px;
+
 }
 
 .alc-pillar-card p {
+
   color: var(--alc-slate);
+
   margin-bottom: 32px;
+
 }
 
 .alc-link-pulse {
+
   display: inline-flex;
+
   align-items: center;
+
   font-size: 14px;
+
   font-weight: 600;
+
   text-transform: uppercase;
+
   letter-spacing: 1px;
+
 }
 
 .alc-link-pulse:hover {
+
   color: var(--alc-signal-white);
+
 }
 
 /* Products Rail */
+
 .alc-product-card {
+
   width: 320px;
+
   flex-shrink: 0;
+
   border: 1px solid rgba(138, 147, 184, 0.2);
+
   padding: 32px;
+
   background: var(--alc-deep-space-indigo);
+
   scroll-snap-align: start;
+
 }
 
 .alc-product-card h3 {
+
   font-size: var(--alc-fs-h3);
+
   margin-top: 24px;
+
   margin-bottom: 12px;
+
 }
 
 .alc-product-card p {
+
   font-size: 14px;
+
   color: var(--alc-slate);
+
 }
 
 /* Mission Split */
+
 .alc-mission-split {
+
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 64px;
+
   align-items: center;
+
 }
 
 .alc-telemetry-label {
+
   font-family: var(--alc-font-mono);
+
   font-size: 12px;
+
   color: var(--alc-ion-cyan);
+
   text-transform: uppercase;
+
   letter-spacing: 2px;
+
   margin-bottom: 16px;
+
   display: inline-block;
+
 }
 
 /* Audience Selector */
+
 .alc-audience-grid {
+
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 24px;
+
 }
 
 .alc-audience-card {
+
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
+
   text-align: center;
+
   padding: 40px 24px;
+
   border: 1px solid rgba(138, 147, 184, 0.2);
+
   background: var(--alc-deep-space-indigo);
+
   transition: transform 0.3s ease, border-color 0.3s ease;
+
 }
 
 .alc-audience-card:hover {
+
   transform: translateY(-8px);
+
   border-color: var(--alc-andromeda-violet);
+
   color: var(--alc-signal-white);
+
 }
 
 .alc-audience-icon {
+
   font-family: var(--alc-font-mono);
+
   color: var(--alc-nebula-magenta);
+
   margin-bottom: 24px;
+
   font-size: 24px;
+
 }
 
 /* Responsive Overrides */
+
 @media (max-width: 1024px) {
+
   .alc-proof-grid-unique,
+
   .alc-audience-grid {
+
     grid-template-columns: repeat(2, 1fr);
+
   }
+
   .alc-mission-split {
+
     grid-template-columns: 1fr;
+
     gap: 32px;
+
   }
+
 }
 
 @media (max-width: 768px) {
+
   .alc-pillar-grid-unique {
+
     grid-template-columns: 1fr;
+
   }
+
   .alc-telemetry-box {
+
     padding: 24px;
+
   }
+
   .alc-hero-title {
+
     font-size: var(--alc-fs-h1);
+
   }
+
 }
 
 /* ============================================================
+
    SCROLL-DRIVEN PRINCIPLES
+
    ============================================================ */
 
 .alc-principles-scroll {
+
   position: relative;
+
   width: 100%;
+
 }
 
 .alc-principles-sticky {
+
   position: relative;
+
   height: 100vh;
+
   width: 100%;
+
   display: flex;
+
   align-items: center;
+
   overflow: hidden;
+
 }
 
 .alc-principles-layout {
+
   display: flex;
+
   width: 100%;
+
   height: 100%;
+
   align-items: center;
+
   gap: 64px;
+
 }
 
 .alc-principles-text-side {
+
   flex: 1;
+
   position: relative;
+
   height: 100%;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
 }
 
 .alc-principles-visual-side {
+
   flex: 1;
+
   height: 100%;
+
   position: relative;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
 }
 
 .alc-principles-heading {
+
   position: absolute;
+
   top: 10%;
+
   left: 0;
+
   width: 100%;
+
   z-index: 10;
+
 }
 
 .alc-principles-stage {
+
   position: relative;
+
   width: 100%;
+
   height: 400px;
+
   margin-top: 60px;
+
 }
 
 .alc-principle-panel-wrapper {
+
   position: absolute;
+
   top: 0;
+
   left: 0;
+
   width: 100%;
+
   will-change: transform, opacity, filter;
+
 }
 
 .alc-principle-card {
+
   border: 1px solid rgba(245,247,255,0.12);
+
   border-radius: 24px;
+
   padding: 40px;
+
   background: rgba(5, 7, 13, 0.6);
+
   backdrop-filter: blur(12px);
+
   color: var(--alc-signal-white);
+
   height: 100%;
+
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .alc-principle-card.is-active {
+
   border-color: var(--alc-andromeda-violet);
+
   box-shadow: 0 0 30px rgba(108, 76, 227, 0.1);
+
 }
 
 .alc-principle-progress {
+
   position: absolute;
+
   bottom: 10%;
+
   left: 0;
+
   display: flex;
+
   align-items: center;
+
   gap: 16px;
+
   font-family: var(--alc-font-mono);
+
   font-size: 14px;
+
   color: var(--alc-slate);
+
 }
 
 .alc-progress-node {
+
   transition: color 0.3s ease;
+
 }
 
 .alc-progress-node.is-active {
+
   color: var(--alc-ion-cyan);
+
 }
 
 .alc-progress-line {
+
   height: 1px;
+
   width: 40px;
+
   background: var(--alc-slate);
-  transition: background 0.3s ease;
+
+  transition: *background* 0.3s ease;
+
 }
 
 .alc-progress-line.is-active {
+
   background: var(--alc-ion-cyan);
+
 }
 
 /* ============================================================
+
    PRINCIPLE VISUALS (CSS Abstract Art)
+
    ============================================================ */
 
 .alc-principle-visual-container {
+
   width: 100%;
+
   height: 400px;
+
   position: relative;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
 }
 
 .alc-visual-state {
+
   position: relative;
+
   width: 300px;
+
   height: 300px;
+
 }
 
 .alc-visual-core {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   width: 40px;
+
   height: 40px;
+
   background: var(--alc-gradient-andromeda-drift);
+
   border-radius: 8px;
+
   z-index: 5;
+
   transition: all 0.5s ease;
+
 }
 
 .alc-visual-layer {
+
   position: absolute;
+
   top: 0;
+
   left: 0;
+
   width: 100%;
+
   height: 100%;
+
   opacity: 0;
+
   transition: opacity 0.5s ease;
+
   pointer-events: none;
+
 }
 
 /* State 0 */
+
 .alc-visual-state--0 .alc-visual-orbit { opacity: 1; }
+
 .alc-orbit-ring {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   border: 1px dashed var(--alc-ion-cyan);
+
   border-radius: 50%;
+
 }
+
 .alc-orbit-ring-1 {
+
   width: 150px;
+
   height: 150px;
+
   animation: alc-spin 20s linear infinite;
+
 }
+
 .alc-orbit-ring-2 {
+
   width: 250px;
+
   height: 250px;
+
   border-style: dotted;
+
   border-color: var(--alc-andromeda-violet);
+
   animation: alc-spin-reverse 30s linear infinite;
+
 }
+
 .alc-orbit-node {
+
   position: absolute;
+
   top: -5px;
+
   left: 50%;
+
   width: 10px;
+
   height: 10px;
+
   background: var(--alc-ion-cyan);
+
   border-radius: 50%;
+
 }
 
 /* State 1 */
+
 .alc-visual-state--1 .alc-visual-radiation { opacity: 1; }
+
 .alc-visual-state--1 .alc-visual-core {
+
   box-shadow: 0 0 20px var(--alc-nebula-magenta);
+
 }
+
 .alc-radiation-wave {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   width: 100px;
+
   height: 100px;
+
   border: 2px solid var(--alc-nebula-magenta);
+
   border-radius: 50%;
+
   animation: alc-pulse-wave 2s infinite ease-out;
+
 }
+
 .alc-radiation-shield {
+
   position: absolute;
+
   top: 50%;
+
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   width: 80px;
+
   height: 80px;
+
   border: 4px solid rgba(41, 227, 217, 0.3);
+
   border-radius: 50%;
+
 }
 
 /* State 2 */
+
 .alc-visual-state--2 .alc-visual-data { opacity: 1; }
+
 .alc-visual-state--2 .alc-visual-core {
+
   border-radius: 50%;
+
   background: var(--alc-ion-cyan);
+
 }
+
 .alc-data-stream-in {
+
   position: absolute;
+
   top: 0;
+
   left: 50%;
+
   width: 100px;
+
   height: 150px;
+
   transform: translateX(-50%);
+
   overflow: hidden;
+
 }
+
 .alc-data-particle {
+
   width: 4px;
+
   height: 4px;
+
   background: var(--alc-slate);
+
   border-radius: 50%;
+
   position: absolute;
+
   left: calc(50% + (Math.random() * 80px - 40px));
+
   top: -10px;
+
   animation: alc-rain 2s infinite linear;
+
 }
+
 .alc-data-filter {
+
   position: absolute;
+
   top: 150px;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   width: 60px;
+
   height: 20px;
+
   border: 1px solid var(--alc-ion-cyan);
+
   border-radius: 4px;
+
 }
+
 .alc-data-stream-out {
+
   position: absolute;
+
   top: 170px;
+
   left: 50%;
+
   width: 40px;
+
   height: 130px;
+
   transform: translateX(-50%);
+
 }
+
 .alc-data-signal {
+
   width: 2px;
+
   height: 20px;
+
   background: var(--alc-signal-white);
+
   margin: 10px auto;
+
   animation: alc-signal-pulse 1s infinite alternate;
+
 }
 
 /* State 3 */
+
 .alc-visual-state--3 .alc-visual-twin { opacity: 1; }
+
 .alc-visual-state--3 .alc-visual-core {
+
   background: transparent;
+
   border: 2px solid var(--alc-andromeda-violet);
+
 }
+
 .alc-twin-grid {
+
   position: absolute;
+
   top: 0; left: 0; width: 100%; height: 100%;
+
   background-image: 
+
     linear-gradient(rgba(108, 76, 227, 0.2) 1px, transparent 1px),
+
     linear-gradient(90deg, rgba(108, 76, 227, 0.2) 1px, transparent 1px);
+
   background-size: 20px 20px;
+
   transform: perspective(500px) rotateX(60deg);
+
   transform-origin: bottom;
+
   animation: alc-grid-move 10s linear infinite;
+
 }
 
 @keyframes alc-spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+
 @keyframes alc-spin-reverse { 100% { transform: translate(-50%, -50%) rotate(-360deg); } }
+
 @keyframes alc-pulse-wave {
+
   0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+
   100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+
 }
+
 @keyframes alc-rain {
+
   0% { transform: translateY(0); opacity: 1; }
+
   100% { transform: translateY(150px); opacity: 0; }
+
 }
+
 @keyframes alc-signal-pulse {
+
   0% { opacity: 0.2; transform: translateY(-10px); }
+
   100% { opacity: 1; transform: translateY(10px); }
+
 }
+
 @keyframes alc-grid-move {
+
   0% { background-position: 0 0; }
+
   100% { background-position: 0 40px; }
+
 }
 
 @media (max-width: 1024px) {
+
   .alc-principles-layout {
+
     flex-direction: column;
+
     padding-top: 100px;
+
   }
+
   .alc-principles-text-side {
+
     height: 60%;
+
   }
+
   .alc-principles-visual-side {
+
     height: 40%;
+
   }
+
   .alc-principle-visual-container {
+
     height: 200px;
+
   }
+
   .alc-visual-state {
+
     transform: scale(0.6);
+
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .alc-principles-sticky {
+
     /* Disable pinning on reduced motion */
+
     height: auto;
+
     overflow: visible;
+
   }
+
   .alc-principle-panel-wrapper {
+
     position: relative;
+
     opacity: 1 !important;
+
     transform: none !important;
+
     filter: none !important;
+
     margin-bottom: 24px;
+
   }
+
   .alc-principles-stage {
+
     height: auto;
+
   }
+
   .alc-principles-visual-side {
+
     display: none; /* Hide animated visuals for reduced motion */
+
   }
+
 }
 
-
 /* =========================================================
+
    GLOBAL RESPONSIVE FOUNDATION
+
    ========================================================= */
 
 *,
+
 *::before,
+
 *::after {
+
   box-sizing: border-box;
+
 }
 
 html {
+
   width: 100%;
+
   max-width: 100%;
+
   overflow-x: hidden;
+
   scroll-behavior: smooth;
+
 }
 
 body {
+
   margin: 0;
+
   width: 100%;
+
   max-width: 100%;
+
   overflow-x: hidden;
+
 }
 
-#root {
+\#root {
+
   width: 100%;
+
   min-height: 100vh;
+
   overflow-x: hidden;
+
 }
 
 /* Prevent media from breaking layouts */
+
 img,
+
 picture,
+
 video,
+
 canvas,
+
 svg {
+
   display: block;
+
   max-width: 100%;
+
   height: auto;
+
 }
 
 /* Responsive container */
+
 .container,
+
 .page-container,
+
 .content-container,
+
 .section-container {
+
   width: 100%;
+
   max-width: 1440px;
+
   margin-left: auto;
+
   margin-right: auto;
+
   padding-left: 48px;
+
   padding-right: 48px;
+
 }
 
 /* Generic flex/grid safety */
+
 .flex,
+
 .row {
+
   min-width: 0;
+
 }
 
 .grid {
+
   min-width: 0;
+
 }
 
 /* Prevent long text from breaking mobile layout */
+
 h1,
+
 h2,
+
 h3,
+
 h4,
+
 h5,
+
 h6,
+
 p,
+
 span,
+
 a {
+
   overflow-wrap: break-word;
+
 }
 
 /* Forms */
+
 input,
+
 textarea,
+
 select,
+
 button {
+
   max-width: 100%;
+
   font: inherit;
+
 }
 
 input,
+
 textarea,
+
 select {
+
   width: 100%;
+
 }
 
 /* Tables */
+
 .table-wrapper,
+
 .table-container {
+
   width: 100%;
+
   overflow-x: auto;
+
   -webkit-overflow-scrolling: touch;
+
 }
 
 table {
+
   width: 100%;
+
   border-collapse: collapse;
+
 }
 
 /* =========================================================
+
    LARGE TABLET / SMALL LAPTOP
+
    ========================================================= */
 
 @media (max-width: 1200px) {
+
   .container,
+
   .page-container,
+
   .content-container,
+
   .section-container {
+
     padding-left: 32px;
+
     padding-right: 32px;
+
   }
+
 }
 
 /* =========================================================
+
    TABLET
+
    ========================================================= */
 
 @media (max-width: 992px) {
+
   .container,
+
   .page-container,
+
   .content-container,
+
   .section-container {
+
     padding-left: 24px;
+
     padding-right: 24px;
+
   }
 
   .two-column,
+
   .three-column,
+
   .four-column {
+
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
   }
+
 }
 
 /* =========================================================
+
    MOBILE / TABLET
+
    ========================================================= */
 
 @media (max-width: 768px) {
+
   .container,
+
   .page-container,
+
   .content-container,
+
   .section-container {
+
     padding-left: 16px;
+
     padding-right: 16px;
+
   }
 
   section {
+
     width: 100%;
+
   }
 
   .two-column,
+
   .three-column,
+
   .four-column,
+
   .cards-grid,
+
   .features-grid,
+
   .services-grid,
+
   .products-grid,
+
   .solutions-grid {
+
     grid-template-columns: 1fr !important;
+
   }
 
   .row,
+
   .flex-row,
+
   .form-row,
+
   .content-row {
+
     flex-direction: column;
+
   }
 
   .mobile-full-width {
+
     width: 100% !important;
+
   }
 
   button,
+
   .btn,
+
   .button {
+
     max-width: 100%;
+
   }
 
   table {
+
     min-width: 650px;
+
   }
+
 }
 
 /* =========================================================
+
    PHONE
+
    ========================================================= */
 
 @media (max-width: 480px) {
+
   .container,
+
   .page-container,
+
   .content-container,
+
   .section-container {
+
     padding-left: 14px;
+
     padding-right: 14px;
+
   }
 
   h1 {
+
     font-size: clamp(1.8rem, 8vw, 2.4rem);
+
     line-height: 1.15;
+
   }
 
   h2 {
+
     font-size: clamp(1.5rem, 7vw, 2rem);
+
     line-height: 1.2;
+
   }
 
   h3 {
+
     font-size: clamp(1.2rem, 6vw, 1.5rem);
+
   }
 
   p {
+
     font-size: 0.95rem;
+
     line-height: 1.6;
+
   }
 
   .actions,
+
   .action-buttons,
+
   .button-group {
+
     display: flex;
+
     flex-direction: column;
+
     width: 100%;
+
     gap: 10px;
+
   }
 
   .actions button,
+
   .actions a,
+
   .action-buttons button,
+
   .action-buttons a,
+
   .button-group button,
+
   .button-group a {
+
     width: 100%;
+
   }
+
 }

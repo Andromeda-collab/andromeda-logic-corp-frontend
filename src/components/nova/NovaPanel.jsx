@@ -5,7 +5,7 @@ export default function NovaPanel({ onClose }) {
   return (
     <div className="alc-nova-panel" role="dialog" aria-label="NOVA AI Mission Assistant">
       <div className="alc-nova-panel__header">
-        <span>NOVA — AI Mission Assistant</span>
+        <span>ALC — AI Mission Assistant</span>
         <button onClick={onClose} aria-label="Close NOVA panel">
           &times;
         </button>
